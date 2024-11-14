@@ -112,7 +112,7 @@ if(!isset($_SESSION)){
 							<tbody>
                             <?php
                              $i = 1;
-                             $sql = $connection->query("SELECT u.*, a.Access FROM users u inner join access a on u.access = a.Id WHERE a.Id IN (1, 2)");
+                             $sql = $connection->query("SELECT u.*, a.Access FROM users u inner join access a on u.access = a.Id");
                              while($row = $sql->fetch_assoc()): ?>
                                 <tr>
 								<td class="text-center"><?php echo $i++; ?></td>

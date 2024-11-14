@@ -165,47 +165,17 @@
                 <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-<!-- Navigation bar content -->
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <B><a></a></B>
-    <!-- Added a span to display the time next to the school name -->
-    <span id="current-time" style="margin-left: 20px; font-size: 18px; font-weight: bold; color: #007bff;"></span> 
-    <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="ajax.php?action=logout"><i class="fa fa-power-off text-danger"></i> Logout</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0)" id="manage_my_account"><i class="fa fa-cog"></i> Manage Account</a>
-        </li>
-    </ul>
-</div>
-
-<script>
-    // Function to update the time
-    function updateTime() {
-        var currentTime = new Date();
-        var hours = currentTime.getHours();
-        var minutes = currentTime.getMinutes();
-        var seconds = currentTime.getSeconds();
-        
-        // Format time to always show two digits for minutes and seconds
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-        
-        // Build the time string (HH:MM:SS)
-        var timeString = hours + ":" + minutes + ":" + seconds;
-
-        // Set the text content of the #current-time span
-        document.getElementById('current-time').textContent = timeString;
-    }
-
-    // Update the time every second
-    setInterval(updateTime, 1000);
-
-    // Call updateTime function immediately when page loads to show the initial time
-    updateTime();
-</script>
-                
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                      <li class="nav-item active">
+                          <a class="nav-link" href="ajax.php?action=logout"><i class="fa fa-power-off text-danger"></i> Logout</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)" id="manage_my_account"><i class="fa fa-cog"></i> Manage Account</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
           </nav>
         <main id="view-panel" >
         <?php $page = isset($_GET['page']) ? $_GET['page'] :'announcement'; ?>
