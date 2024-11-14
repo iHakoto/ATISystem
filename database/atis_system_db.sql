@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2024 at 01:13 PM
+-- Generation Time: Nov 14, 2024 at 01:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -403,7 +403,8 @@ INSERT INTO `users` (`Id`, `username`, `password`, `access`, `Faculty_Id`, `Stud
 (147, 'faculty1@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '2', 70, 0, 0, 0, ''),
 (148, 'faculty2@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '2', 71, 0, 0, 0, ''),
 (150, 'student4@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '1', 0, 203, 0, 26, ''),
-(151, 'admin1@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '3', 0, 0, 1, 0, '');
+(151, 'admin1@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '3', 0, 0, 1, 0, ''),
+(152, 'admin', '21232f297a57a5a743894a0e4a801fc3', '3', 0, 0, 12, 0, '');
 
 --
 -- Indexes for dumped tables
@@ -592,7 +593,7 @@ ALTER TABLE `teacher_announcement`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
