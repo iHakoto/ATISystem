@@ -167,7 +167,7 @@
                 </button>
 <!-- Navigation bar content -->
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <B><a>Alta Tierra Integrated School, Inc.</a></B>
+    <B><a></a></B>
     <!-- Added a span to display the time next to the school name -->
     <span id="current-time" style="margin-left: 20px; font-size: 18px; font-weight: bold; color: #007bff;"></span> 
     <ul class="nav navbar-nav ml-auto">
@@ -205,7 +205,6 @@
     // Call updateTime function immediately when page loads to show the initial time
     updateTime();
 </script>
-
                 
           </nav>
         <main id="view-panel" >
