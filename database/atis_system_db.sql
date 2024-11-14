@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2024 at 05:27 PM
+-- Generation Time: Nov 14, 2024 at 02:01 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -58,14 +58,6 @@ CREATE TABLE `admin` (
   `Added_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`Id`, `Firstname`, `Middlename`, `Lastname`, `Email`, `Admin_img`, `phonenumber`, `Added_at`) VALUES
-(76, 'William Rowell', 'Aplacador', 'Gimena', 'williamrowellgimena1@yahoo.com', 'william.jpg', '922321111', '2022-10-04 23:17:33'),
-(80, 'Rowell', 'awdadawdwa', 'Gimena', 'willgimena1@gmail.com', '', '09758869674', '2024-09-26 19:45:38');
-
 -- --------------------------------------------------------
 
 --
@@ -91,7 +83,7 @@ CREATE TABLE `announcement` (
 --
 
 INSERT INTO `announcement` (`Id`, `class_id`, `admin_faculty_id`, `type`, `title`, `description`, `start_time`, `end_time`, `announce_date`, `status`, `addet_At`) VALUES
-(8, 0, 76, 'School', 'waedwadwa', 'wdad', '02:59:00', '03:59:00', '2024-12-31', 1, '2024-11-10 16:04:06');
+(10, 0, 1, 'School', 'Admin Announcemt', 'This is an admin announcement.', '00:00:00', '00:00:00', '2024-11-14', 1, '2024-11-14 12:42:28');
 
 -- --------------------------------------------------------
 
@@ -111,9 +103,9 @@ CREATE TABLE `class` (
 --
 
 INSERT INTO `class` (`Id`, `Gradelevel_Id`, `Section`, `added_at`) VALUES
-(22, 15, 'Red', '2022-12-18 13:46:28'),
-(23, 17, 'Blue', '2024-09-29 16:23:43'),
-(24, 15, 'Pink', '2024-10-19 23:59:31');
+(25, 15, 'Red', '2024-11-14 11:55:38'),
+(26, 17, 'Apple', '2024-11-14 11:55:43'),
+(27, 18, 'Oak', '2024-11-14 11:55:48');
 
 -- --------------------------------------------------------
 
@@ -137,11 +129,9 @@ CREATE TABLE `class_subjects` (
 --
 
 INSERT INTO `class_subjects` (`Id`, `class_id`, `subject_id`, `faculty_id`, `day`, `start_time`, `end_time`, `added_at`) VALUES
-(32, 22, 11, 65, '7', '18:00:00', '20:00:00', '2024-09-29 17:02:24'),
-(33, 23, 12, 65, '7', '14:00:00', '16:00:00', '2024-09-29 17:02:41'),
-(36, 22, 11, 66, '7', '20:00:00', '21:00:00', '2024-09-29 22:41:40'),
-(37, 24, 13, 65, '7', '20:00:00', '21:00:00', '2024-10-20 00:00:13'),
-(38, 24, 11, 65, '10', '21:00:00', '23:00:00', '2024-10-26 01:53:22');
+(39, 25, 16, 70, '7', '08:00:00', '09:00:00', '2024-11-14 12:06:13'),
+(41, 26, 14, 71, '11', '06:00:00', '07:00:00', '2024-11-14 12:36:38'),
+(42, 27, 14, 71, '11', '06:00:00', '07:00:00', '2024-11-14 12:37:02');
 
 -- --------------------------------------------------------
 
@@ -188,8 +178,8 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`Id`, `Firstname`, `Middlename`, `Lastname`, `Email`, `Faculty_img`, `phonenumber`, `Added_at`) VALUES
-(65, 'Dave', '', 'Perf', 'Dave1@gmail.com', '2.png', '09232323232', '2024-09-29 17:00:02'),
-(66, 'Jerome', 'Magsino', 'Pogi', 'jerome1@gmail.com', '', '09111111111', '2024-09-29 17:00:26');
+(70, 'Anthony Gabriel', '', 'Amurao', 'faculty1@school.edu', '', '123456', '2024-11-14 11:57:06'),
+(71, 'John', '', 'Pliskin', 'faculty2@school.edu', '', '123456', '2024-11-14 12:00:23');
 
 -- --------------------------------------------------------
 
@@ -209,9 +199,13 @@ CREATE TABLE `gradelevel` (
 --
 
 INSERT INTO `gradelevel` (`Id`, `Gradelevel`, `Description`, `added_at`) VALUES
-(15, 'Grade 1', 'test1', '2022-12-18 13:45:55'),
-(17, 'Grade 2', '', '2024-09-26 20:54:10'),
-(18, 'Grade 3', '', '2024-10-19 23:58:38');
+(15, 'Grade 1', 'Elementary', '2022-12-18 13:45:55'),
+(17, 'Grade 2', 'Elementary', '2024-09-26 20:54:10'),
+(18, 'Grade 3', 'Elementary', '2024-10-19 23:58:38'),
+(19, 'Grade 4', 'Elementary', '2024-11-14 14:44:32'),
+(20, 'Grade 5', 'Elementary', '2024-11-14 14:44:43'),
+(21, 'Grade 6', 'Elementary', '2024-11-14 14:44:49'),
+(22, 'Grade 7', 'Junior High', '2024-11-14 14:45:07');
 
 -- --------------------------------------------------------
 
@@ -249,11 +243,10 @@ CREATE TABLE `grades` (
 --
 
 INSERT INTO `grades` (`Id`, `student_id`, `faculty_id`, `class_subject_id`, `quarter_id`, `written_work`, `performance_task`, `quarterly_assesment`, `quarterly_grade`, `comment`, `ww1`, `ww2`, `ww3`, `ww4`, `ww5`, `pt1`, `pt2`, `pt3`, `pt4`, `pt5`, `qa`, `addet_At`) VALUES
-(73, 188, 65, 38, '3', '23', '10', '23', '56.00', '', 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, '2024-11-12 23:00:43'),
-(74, 188, 65, 37, '1', '20.20', '10', '23', '53.20', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-11-12 23:51:44'),
-(75, 179, 65, 37, '1', '31', '10', '23', '64.00', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-11-12 23:52:02'),
-(76, 179, 65, 38, '1', '44', '23', '12', '79.00', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-11-12 23:52:44'),
-(77, 188, 65, 37, '2', '30', '12', '23', '65.00', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-11-12 23:55:01');
+(78, 200, 70, 39, '1', '20', '25', '20', '65.00', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-11-14 12:47:50'),
+(79, 200, 70, 39, '2', '25', '40', '15', '80.00', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-11-14 12:48:26'),
+(80, 200, 70, 39, '3', '20', '50', '15', '85.00', '3rd quarterr', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-11-14 12:52:46'),
+(81, 200, 70, 39, '4', '25', '40', '15', '80.00', '4th quarter', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-11-14 12:53:21');
 
 -- --------------------------------------------------------
 
@@ -299,9 +292,10 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`Id`, `Firstname`, `Middlename`, `Lastname`, `Email`, `Student_img`, `class_id`, `phonenumber`, `Added_at`) VALUES
-(178, 'Brix', 'test', 'Paredes', 'brix@gmail.com', '', 22, '09222222222', '2024-09-29 17:01:07'),
-(179, 'Romel', 'test', 'Panganiban', 'romel1@gmail.com', '3.png', 24, '09344333333', '2024-09-29 17:01:34'),
-(188, 'Rowell', '', 'Gimena', 'willgimena1@gmail.com', 'GRITTY.jpg', 24, '09758869674', '2024-10-19 23:58:20');
+(200, 'Clarence', '', 'Cabiles', 'student1@school.edu', '', 25, '123456', '2024-11-14 11:51:56'),
+(201, 'John Mark', '', 'Canlas', 'student2@school.edu', '', 25, '123456', '2024-11-14 11:56:28'),
+(202, 'John Carl', '', 'Mendoza', 'student3@school.edu', '', 25, '123456', '2024-11-14 11:56:48'),
+(203, 'Mark Anthony', '', 'Gonzales', 'student4@school.edu', '', 26, '123456', '2024-11-14 15:08:01');
 
 -- --------------------------------------------------------
 
@@ -321,9 +315,11 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`Id`, `Subject`, `Description`, `added_at`) VALUES
-(11, 'Math', '(Grade 1)', '2024-09-26 00:20:26'),
-(12, 'English', '', '2024-09-26 20:54:23'),
-(13, 'Science', '(Grade 1)', '2024-10-19 23:59:00');
+(14, 'MAPEH', '1-6', '2024-11-14 11:53:14'),
+(15, 'Science', '1-6', '2024-11-14 11:53:18'),
+(16, 'Math', '1-6', '2024-11-14 11:53:27'),
+(17, 'AP', '1-6', '2024-11-14 11:53:42'),
+(18, 'English', '1-6', '2024-11-14 11:53:51');
 
 -- --------------------------------------------------------
 
@@ -347,7 +343,7 @@ CREATE TABLE `system_settings` (
 --
 
 INSERT INTO `system_settings` (`id`, `name`, `email`, `contact`, `cover_img1`, `cover_img2`, `cover_img3`, `about_content`) VALUES
-(1, 'ATISystem', 'will@sample.com', '0948 8542 622', 'test.jpg', '', '', '&lt;p style=&quot;text-align: center; background: transparent; position: relative;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Open Sans&amp;quot;, Arial, sans-serif; font-weight: 400; text-align: justify;&quot;&gt;&amp;nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&rsquo;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center; background: transparent; position: relative;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center; background: transparent; position: relative;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;');
+(1, 'ATISystem', 'email@sample.com', '123456', 'test.jpg', '', '', '&lt;p style=&quot;text-align: center; background: transparent; position: relative;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Open Sans&amp;quot;, Arial, sans-serif; font-weight: 400; text-align: justify;&quot;&gt;&amp;nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&rsquo;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center; background: transparent; position: relative;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center; background: transparent; position: relative;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;');
 
 -- --------------------------------------------------------
 
@@ -375,7 +371,8 @@ CREATE TABLE `teacher_announcement` (
 
 INSERT INTO `teacher_announcement` (`Id`, `class_id`, `faculty_id`, `type`, `title`, `description`, `start_time`, `end_time`, `announce_date`, `status`, `added_At`) VALUES
 (6, '38', '65', 'School', 'adwdaw', 'awdwad', '00:00:00', '01:00:00', '2024-11-20', 1, '2024-11-10 16:04:48'),
-(8, '36', '66', 'School', 'wadad', 'awdadwad', '02:00:00', '04:00:00', '2024-11-15', 1, '2024-11-10 16:04:48');
+(8, '36', '66', 'School', 'wadad', 'awdadwad', '02:00:00', '04:00:00', '2024-11-15', 1, '2024-11-10 16:04:48'),
+(10, '39', '70', 'School', 'Teacher Announcement', 'Homework for class \"Red\"', '00:00:00', '00:00:00', '2024-11-14', 1, '2024-11-14 14:15:47');
 
 -- --------------------------------------------------------
 
@@ -400,12 +397,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`Id`, `username`, `password`, `access`, `Faculty_Id`, `Student_Id`, `Admin_Id`, `stud_class_id`, `resettoken`) VALUES
-(44, 'williamrowellgimena1@yahoo.com', 'fcea920f7412b5da7be0cf42b8c93759', '3', 0, 0, 76, 0, 'NULL'),
-(113, 'Dave1@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', '2', 65, 0, 0, 0, ''),
-(114, 'jerome1@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', '2', 66, 0, 0, 0, ''),
-(115, 'brix@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', '1', 0, 178, 0, 22, ''),
-(116, 'romel1@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', '1', 0, 179, 0, 24, ''),
-(129, 'willgimena1@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', '1', 0, 188, 0, 24, '');
+(144, 'student1@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '1', 0, 200, 0, 25, ''),
+(145, 'student2@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '1', 0, 201, 0, 25, ''),
+(146, 'student3@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '1', 0, 202, 0, 25, ''),
+(147, 'faculty1@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '2', 70, 0, 0, 0, ''),
+(148, 'faculty2@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '2', 71, 0, 0, 0, ''),
+(150, 'student4@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '1', 0, 203, 0, 26, '');
 
 --
 -- Indexes for dumped tables
@@ -522,19 +519,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `announcement`
 --
 ALTER TABLE `announcement`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `days`
@@ -546,19 +543,19 @@ ALTER TABLE `days`
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `gradelevel`
 --
 ALTER TABLE `gradelevel`
-  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `grades`
 --
 ALTER TABLE `grades`
-  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `quarters`
@@ -570,13 +567,13 @@ ALTER TABLE `quarters`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
+  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
 
 --
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `system_settings`
@@ -588,13 +585,13 @@ ALTER TABLE `system_settings`
 -- AUTO_INCREMENT for table `teacher_announcement`
 --
 ALTER TABLE `teacher_announcement`
-  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
+  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
