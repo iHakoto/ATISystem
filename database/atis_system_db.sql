@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2024 at 01:11 PM
+-- Generation Time: Nov 14, 2024 at 01:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -403,7 +403,7 @@ INSERT INTO `users` (`Id`, `username`, `password`, `access`, `Faculty_Id`, `Stud
 (147, 'faculty1@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '2', 70, 0, 0, 0, ''),
 (148, 'faculty2@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '2', 71, 0, 0, 0, ''),
 (150, 'student4@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '1', 0, 203, 0, 26, ''),
-(151, 'admin1@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '3', 0, 0, 11, 0, '');
+(151, 'admin1@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '3', 0, 0, 1, 0, '');
 
 --
 -- Indexes for dumped tables
