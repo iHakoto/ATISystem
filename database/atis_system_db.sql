@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2024 at 02:07 PM
+-- Generation Time: Nov 14, 2024 at 02:12 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -397,12 +397,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`Id`, `username`, `password`, `access`, `Faculty_Id`, `Student_Id`, `Admin_Id`, `stud_class_id`, `resettoken`) VALUES
+(57, 'jcgmdz@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '3', 0, 0, 45, 0, 'NULL'),
 (144, 'student1@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '1', 0, 200, 0, 25, ''),
 (145, 'student2@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '1', 0, 201, 0, 25, ''),
 (146, 'student3@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '1', 0, 202, 0, 25, ''),
 (147, 'faculty1@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '2', 70, 0, 0, 0, ''),
-(148, 'faculty2@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '2', 71, 0, 0, 0, ''),
-(153, 'jcgmdz@gmail.com', 'f7f7f7', '3', 0, 0, 45, 0, 'NULL');
+(148, 'faculty2@school.edu', 'e10adc3949ba59abbe56e057f20f883e', '2', 71, 0, 0, 0, '');
 
 --
 -- Indexes for dumped tables
