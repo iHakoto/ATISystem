@@ -176,6 +176,18 @@
                     </ul>
                   </div>
                 </div>
+
+                <style>
+    .navbar-collapse {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .navbar-title {
+      text-align: center;
+    }
+  </style>
           </nav>
         <main id="view-panel" >
         <?php $page = isset($_GET['page']) ? $_GET['page'] :'announcement'; ?>
