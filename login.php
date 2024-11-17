@@ -39,7 +39,7 @@ ob_end_flush();
         max-width: 400px;
         margin: 10vh auto;
         padding: 20px;
-        background: rgba(255, 255, 255, 0.9);
+        background: maroon;
         border-radius: 8px;
         box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
         animation: fadeIn 1.5s ease-out;
