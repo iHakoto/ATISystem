@@ -49,19 +49,19 @@ if(isset($_POST['save_student'])){
         echo json_encode($res);
         return;
     }
-    // Validate that firstname is at least 4 characters long
-    if (strlen($firstname) < 4) {
+    // Validate that firstname is at least 3 characters long
+    if (strlen($firstname) < 3) {
         $res = [
             'status' => 422,
-            'message' => 'First Name must be at least 4 characters long!'
+            'message' => 'First Name must be at least 3 characters long!'
         ];
         echo json_encode($res);
         return;
     }
-    if (strlen($lastname) < 4) {
+    if (strlen($lastname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'Last Name must be at least 4 characters long!'
+            'message' => 'Last Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
