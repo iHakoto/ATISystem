@@ -310,6 +310,5 @@ width: 25%;
   #sidebar.active .nav-item {
     font-size: 11px;      /* Adjust font size as needed */
     font-weight: bold;    /* Adjust font weight */ 
-    display: block;
 }
 </style>
