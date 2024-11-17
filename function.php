@@ -104,14 +104,15 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
         echo json_encode($res);
         return;
     }
-    if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@._-]+$/", $email)) {
+    if (!preg_match("/^[A-Za-z\d@._-]+$/", $email)) {
         $res = [
             'status' => 422,
-            'message' => 'Email must contain both numbers and characters!'
+            'message' => 'Email must contain only letters, numbers, and special characters (@, ., _, -)!'
         ];
         echo json_encode($res);
         return;
     }
+    
     
     if($phonenumber == NULL ) {
         $res = [
