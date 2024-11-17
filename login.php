@@ -6,171 +6,216 @@ include('database/db_connect.php');
 include('./header.php');
 ob_start();
 if(!isset($_SESSION['system'])){
-	$system = $connection->query("SELECT * FROM system_settings limit 1")->fetch_array();
-	foreach($system as $k => $v){
-		$_SESSION['system'][$k] = $v;
-	}
+    $system = $connection->query("SELECT * FROM system_settings limit 1")->fetch_array();
+    foreach($system as $k => $v){
+        $_SESSION['system'][$k] = $v;
+    }
 }
 ob_end_flush();
 ?>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title><?php echo $_SESSION['system']['name'] ?></title>	
+  <title><?php echo $_SESSION['system']['name'] ?></title>  
 </head>
 <style>
-    @media screen and (min-width:768px) and (max-width: 980px) {
-	.card {
-		width: 50% !important;
-		display: initial;
-	}
-}
+    /* Resetting margins and paddings */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-   }
-   body{
-        font-family: "Times New Roman", Times, serif;
+    body {
+        font-family: 'Arial', sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    h1{
-        text-align:center;
+
+    .login-container {
+        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        padding: 40px;
+        width: 100%;
+        max-width: 400px;
+        animation: fadeIn 1s ease-out;
     }
-.img{
-    overflow: auto;
-}
-    /* Login */
-    .login-container{
-        margin: 0 auto;
-        width: 30%;
-        margin-top: 10vh;
-    }
- 
-    .login-container h2{
+
+    .login-container h2 {
+        font-size: 28px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 30px;
         text-align: center;
-        font-size: 35px;
-      padding-top: 0;
+    }
 
+    .form-element {
+        margin-bottom: 20px;
     }
-    .form-element{
-        width: 100%;
-    }
-    .form-element label{
+
+    .form-element label {
+        font-size: 16px;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 8px;
         display: block;
-        font-size: 18px;
-        margin-top: 1rem;
     }
-    .form-element input[type=text],input[type=password]{
-        font-size: 18px;
+
+    .form-element input[type="text"],
+    .form-element input[type="password"] {
         width: 100%;
-        padding: 12px;
-        border: 1px solid black;
-        border-radius: 4px;     
+        padding: 12px 15px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        transition: 0.3s ease;
+        outline: none;
     }
-    .card button{
-        width: 100%;
-        letter-spacing: 6px;
-        border-radius: 4px;
-        margin-top: 2rem;
-        font-size: 18px;
-        padding: 1rem;
-        background-color: rgb(2, 110, 165);
-        border: none;
-        color: white;
+
+    .form-element input[type="text"]:focus,
+    .form-element input[type="password"]:focus {
+        border-color: #FF7A00;
+        box-shadow: 0 0 5px rgba(255, 122, 0, 0.5);
+    }
+
+    .show-password {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .show-password input {
+        margin-left: 10px;
         cursor: pointer;
     }
-    .card button:hover{
-        background-color: rgb(50, 216, 218);
-    }
-    .card{
-        background-color: rgba(128, 128, 128,.90);
-        border: 1px solid grey;
-        border-radius: 4px;
-        /* height: 550px; */
-        height: auto;
-        padding: 2rem;
-        box-shadow: 5px 6px 18px #888888;        
-    }
-    .form-logo{
-    width: 100%;
-    height: auto;
-    text-align: center;
-    }
-    #formlogin{
-        background-image: url('images/bg.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
+
+    /* Default state of the login button */
+    .login-btn {
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        font-size: 18px;
+        background-color: #800000;
+        border: none;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        letter-spacing: 1px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
     }
 
+    /* Button hover effect */
+    .login-btn:hover {
+        background-color: #6A0000; /* Maroon color when hovered */
+        transform: translateY(-3px); /* Slight lift effect */
+    }
+
+    /* Button active state */
+    .login-btn:active {
+        transform: translateY(0); /* Return to normal on click */
+    }
+
+    .forgot-password {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .forgot-password a {
+        color: #800000;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .forgot-password a:hover {
+        color: #6A0000;
+    }
+
+    /* Animation for fade-in */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Media Query for responsiveness */
+    @media screen and (max-width: 768px) {
+        .login-container {
+            padding: 30px;
+            width: 80%;
+        }
+    }
 </style>
 
-<body id="formlogin">
-<div
-    class="d-flex flex-column min-vh-100 justify-content-center align-items-center"
-    id="template-bg-3">
-    <div class="card mb-5 p-5 text-white col-md-4">
-        <div class="card-header text-center">
-        <h3 id=systemname><b><?php echo $_SESSION['system']['name'] ?></b></h3>
-        </div>
-        <form id = "login-form" action ="" method="post">
-        <div class="form-element">
-        <label >Username</label>
-        <input type="text" name="username" id="username" autocomplete="off" placeholder ="Enter Username" required>
-        </div>
+<body>
+    <div class="login-container">
+        <h2>Welcome to <?php echo $_SESSION['system']['name']; ?></h2>
+        <form id="login-form" action="" method="post">
+            <div class="form-element">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" autocomplete="off" placeholder="Enter Username" required>
+            </div>
 
-        <div class="form-element">
-        <label >Password</label>
-        <input type="password" name="password" id="password" placeholder ="Enter Password" required>
-        <input type="radio" onclick="myFunction()">Show Password
-        </div>
-        
-        <div class="text-center">
-                    <input type="submit" value="Login"
-                        class="btn btn-warning mt-3 w-100 p-2"
-                        name="login">
-                </div>
-                <div class="text-center">
-            <a href="forgotPassword.php" class="text-white">Forget password?</a>
-        </div>
-</form>  
-</div>
-</div>
+            <div class="form-element">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter Password" required>
+            </div>
+
+            <div class="show-password">
+                <input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password
+            </div>
+
+            <button type="submit" name="login" class="login-btn">Login</button>
+
+            <div class="forgot-password">
+                <a href="forgotPassword.php">Forgot password?</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Show password toggle
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            var checkBox = document.getElementById("showPassword");
+            if (checkBox.checked) {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+
+        // Handle form submission
+        $('#login-form').submit(function(e){
+            e.preventDefault();
+
+            $('#login-form button[type="submit"]').attr('disabled', true).text('Logging in...');
+            if ($(this).find('.alert-danger').length > 0) $(this).find('.alert-danger').remove();
+
+            $.ajax({
+                url: 'ajax.php?action=login',
+                method: 'POST',
+                data: $(this).serialize(),
+                error: function(err) {
+                    console.log(err);
+                    $('#login-form button[type="submit"]').removeAttr('disabled').text('Login');
+                },
+                success: function(resp) {
+                    if (resp == 1) {
+                        location.href = 'index.php?page=home';
+                    } else {
+                        $('#login-form').prepend('<div class="alert alert-danger">Username or password is incorrect.</div>');
+                        $('#login-form button[type="submit"]').removeAttr('disabled').text('Login');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
-
-<script>
-function myFunction() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-	$('#login-form').submit(function(e){
-		e.preventDefault()
-		$('#login-form button[type="button"]').attr('disabled',true).html('Logging in...');
-		if($(this).find('.alert-danger').length > 0 )
-			$(this).find('.alert-danger').remove();
-		$.ajax({
-			url:'ajax.php?action=login',
-			method:'POST',
-			data:$(this).serialize(),
-			error:err=>{
-				console.log(err)
-		$('#login-form button[type="button"]').removeAttr('disabled').html('Login');
-
-			},
-			success:function(resp){
-				if(resp == 1){
-					location.href ='index.php?page=home';
-				}else{
-					$('#login-form').prepend('<div class="alert alert-danger">Username or password is incorrect.</div>')
-					$('#login-form button[type="button"]').removeAttr('disabled').html('Login');
-				}
-			}
-		})
-	})
-
-</script>	
 </html>
