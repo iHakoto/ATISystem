@@ -97,7 +97,7 @@ ob_end_flush();
         width: 100%;
         padding: 12px;
         font-size: 18px;
-        background-color: #4F9F98; /* Teacher Blue */
+        background-color: #6A0000;
         border: none;
         color: white;
         border-radius: 8px;
