@@ -96,7 +96,7 @@ ob_end_flush();
         width: 100%;
         padding: 12px;
         font-size: 18px;
-        background-color: #FF7A00;
+        background-color: linear-gradient(135deg, #4F9F98, #800000);
         border: none;
         color: white;
         border-radius: 8px;
