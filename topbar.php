@@ -301,6 +301,7 @@ width: 25%;
 .dropdown-container {
   display: none;
   padding-left: 8px;
+  display: block;
 }
 
 .nav-item:hover {
