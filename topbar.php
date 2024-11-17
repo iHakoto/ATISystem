@@ -301,7 +301,6 @@ width: 25%;
 .dropdown-container {
   display: none;
   padding-left: 8px;
-  display: block;
 }
 
 .nav-item:hover {
@@ -310,6 +309,5 @@ width: 25%;
   #sidebar.active .nav-item {
     font-size: 11px;      /* Adjust font size as needed */
     font-weight: bold;    /* Adjust font weight */ 
-    display: block;
 }
 </style>
