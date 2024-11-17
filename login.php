@@ -71,12 +71,14 @@ ob_end_flush();
         border-radius: 4px;
         font-size: 16px;
         transition: all 0.3s ease;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .form-element input[type="text"]:focus,
     .form-element input[type="password"]:focus {
         border-color: #4CAF50;
         outline: none;
+        box-shadow: 0px 0px 10px rgba(76, 175, 80, 0.4);
     }
 
     .card button {
@@ -121,6 +123,7 @@ ob_end_flush();
         background-size: cover;
         background-position: center;
         height: 100vh;
+        animation: backgroundAnimation 5s infinite alternate;
     }
 
     .text-center {
@@ -145,6 +148,15 @@ ob_end_flush();
         to {
             transform: translateY(0);
             opacity: 1;
+        }
+    }
+
+    @keyframes backgroundAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
         }
     }
 
