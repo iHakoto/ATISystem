@@ -261,10 +261,10 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
          echo json_encode($res);
          return;
      }
-     if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@._-]+$/", $email)) {
+     if (!preg_match("/^[A-Za-z\d@._-]+$/", $email)) {
          $res = [
              'status' => 422,
-             'message' => 'Email must contain both numbers and characters!'
+             'message' => 'Email must contain only letters, numbers, and special characters (@, ., _, -)!'
          ];
          echo json_encode($res);
          return;
@@ -391,10 +391,10 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
          echo json_encode($res);
          return;
      }
-     if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@._-]+$/", $email)) {
+     if (!preg_match("/^[A-Za-z\d@._-]+$/", $email)) {
          $res = [
              'status' => 422,
-             'message' => 'Email must contain both numbers and characters!'
+             'message' => 'Email must contain only letters, numbers, and special characters (@, ., _, -)!'
          ];
          echo json_encode($res);
          return;
@@ -534,10 +534,10 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
          echo json_encode($res);
          return;
      }
-     if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@._-]+$/", $email)) {
+     if (!preg_match("/^[A-Za-z\d@._-]+$/", $email)) {
          $res = [
              'status' => 422,
-             'message' => 'Email must contain both numbers and characters!'
+            'message' => 'Email must contain only letters, numbers, and special characters (@, ., _, -)!'
          ];
          echo json_encode($res);
          return;
@@ -741,10 +741,10 @@ if(isset($_POST['save_faculty'])){
           echo json_encode($res);
           return;
       }
-      if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@._-]+$/", $email)) {
+      if (!preg_match("/^[A-Za-z\d@._-]+$/", $email)) {
           $res = [
               'status' => 422,
-              'message' => 'Email must contain both numbers and characters!'
+              'message' => 'Email must contain only letters, numbers, and special characters (@, ., _, -)!'
           ];
           echo json_encode($res);
           return;
@@ -896,7 +896,7 @@ if(isset($_POST['save_faculty'])){
         echo json_encode($res);
         return;
     }
-    if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@._-]+$/", $email)) {
+    if (!preg_match("/^[A-Za-z\d@._-]+$/", $email)) {
         $res = [
             'status' => 422,
             'message' => 'Email must contain both numbers and characters!'
@@ -1021,10 +1021,10 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
          echo json_encode($res);
          return;
      }
-     if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@._-]+$/", $email)) {
+     if (!preg_match("/^[A-Za-z\d@._-]+$/", $email)) {
          $res = [
              'status' => 422,
-             'message' => 'Email must contain both numbers and characters!'
+             'message' => 'Email must contain only letters, numbers, and special characters (@, ., _, -)!'
          ];
          echo json_encode($res);
          return;
@@ -1156,10 +1156,10 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
          echo json_encode($res);
          return;
      }
-     if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@._-]+$/", $email)) {
+     if (!preg_match("/^[A-Za-z\d@._-]+$/", $email)) {
          $res = [
              'status' => 422,
-             'message' => 'Email must contain both numbers and characters!'
+             'message' => 'Email must contain only letters, numbers, and special characters (@, ., _, -)!'
          ];
          echo json_encode($res);
          return;
@@ -1357,10 +1357,10 @@ if(isset($_POST['save_admin'])){
          echo json_encode($res);
          return;
      }
-     if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@._-]+$/", $email)) {
+     if (!preg_match("/^[A-Za-z\d@._-]+$/", $email)) {
          $res = [
              'status' => 422,
-             'message' => 'Email must contain both numbers and characters!'
+             'message' => 'Email must contain only letters, numbers, and special characters (@, ., _, -)!'
          ];
          echo json_encode($res);
          return;
@@ -1506,7 +1506,7 @@ if(isset($_POST['save_admin'])){
         echo json_encode($res);
         return;
     }
-    if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@._-]+$/", $email)) {
+    if (!preg_match("/^[A-Za-z\d@._-]+$/", $email)) {
         $res = [
             'status' => 422,
             'message' => 'Email must contain both numbers and characters!'
@@ -1631,10 +1631,10 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
          echo json_encode($res);
          return;
      }
-     if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@._-]+$/", $email)) {
+     if (!preg_match("/^[A-Za-z\d@._-]+$/", $email)) {
          $res = [
              'status' => 422,
-             'message' => 'Email must contain both numbers and characters!'
+             'message' => 'Email must contain only letters, numbers, and special characters (@, ., _, -)!'
          ];
          echo json_encode($res);
          return;
@@ -1764,10 +1764,10 @@ if (strlen($lastname) < 2) {
          echo json_encode($res);
          return;
      }
-     if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@._-]+$/", $email)) {
+     if (!preg_match("/^[A-Za-z\d@._-]+$/", $email)) {
          $res = [
              'status' => 422,
-             'message' => 'Email must contain both numbers and characters!'
+             'message' => 'Email must contain only letters, numbers, and special characters (@, ., _, -)!'
          ];
          echo json_encode($res);
          return;
