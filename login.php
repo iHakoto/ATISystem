@@ -96,6 +96,7 @@ ob_end_flush();
     .login-btn {
         width: 100%;
         padding: 10px;
+        margin-top: 20px;
         font-size: 18px;
         background-color: #800000;
         border: none;
