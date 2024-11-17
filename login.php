@@ -95,7 +95,7 @@ ob_end_flush();
     /* Default state of the login button */
     .login-btn {
         width: 100%;
-        padding: 12px;
+        padding: 10px;
         font-size: 18px;
         background-color: #800000;
         border: none;
