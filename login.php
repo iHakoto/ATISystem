@@ -92,11 +92,12 @@ ob_end_flush();
         cursor: pointer;
     }
 
+    /* Default state of the login button */
     .login-btn {
         width: 100%;
         padding: 12px;
         font-size: 18px;
-        background-color: linear-gradient(135deg, #4F9F98, #800000);
+        background-color: #4F9F98; /* Teacher Blue */
         border: none;
         color: white;
         border-radius: 8px;
@@ -106,13 +107,15 @@ ob_end_flush();
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
     }
 
+    /* Button hover effect */
     .login-btn:hover {
-        background-color: #FF5722;
-        transform: translateY(-3px);
+        background-color: #800000; /* Maroon color when hovered */
+        transform: translateY(-3px); /* Slight lift effect */
     }
 
+    /* Button active state */
     .login-btn:active {
-        transform: translateY(0);
+        transform: translateY(0); /* Return to normal on click */
     }
 
     .forgot-password {
