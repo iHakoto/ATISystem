@@ -28,7 +28,6 @@ ob_end_flush();
 
     body {
         font-family: 'Arial', sans-serif;
-        background: linear-gradient(135deg, #FF7A00, #FF0066); /* Gradient background */
         height: 100vh;
         display: flex;
         justify-content: center;
