@@ -50,10 +50,10 @@ if(isset($_POST['save_student'])){
         return;
     }
     // Validate that firstname is at least 3 characters long
-    if (strlen($firstname) < 3) {
+    if (strlen($firstname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'First Name must be at least 3 characters long!'
+            'message' => 'First Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
@@ -227,18 +227,18 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
          return;
      }
      // Validate that firstname is at least 4 characters long
-    if (strlen($firstname) < 4) {
+    if (strlen($firstname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'First Name must be at least 4 characters long!'
+            'message' => 'First Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
     }
-    if (strlen($lastname) < 4) {
+    if (strlen($lastname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'Last Name must be at least 4 characters long!'
+            'message' => 'Last Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
@@ -357,18 +357,18 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
          return;
      }
      // Validate that firstname is at least 4 characters long
-    if (strlen($firstname) < 4) {
+    if (strlen($firstname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'First Name must be at least 4 characters long!'
+            'message' => 'First Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
     }
-    if (strlen($lastname) < 4) {
+    if (strlen($lastname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'Last Name must be at least 4 characters long!'
+            'message' => 'Last Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
@@ -500,18 +500,18 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
          return;
      }
      // Validate that firstname is at least 4 characters long
-    if (strlen($firstname) < 4) {
+    if (strlen($firstname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'First Name must be at least 4 characters long!'
+            'message' => 'First Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
     }
-    if (strlen($lastname) < 4) {
+    if (strlen($lastname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'Last Name must be at least 4 characters long!'
+            'message' => 'Last Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
@@ -707,18 +707,18 @@ if(isset($_POST['save_faculty'])){
           return;
       }
       // Validate that firstname is at least 4 characters long
-    if (strlen($firstname) < 4) {
+    if (strlen($firstname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'First Name must be at least 4 characters long!'
+            'message' => 'First Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
     }
-    if (strlen($lastname) < 4) {
+    if (strlen($lastname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'Last Name must be at least 4 characters long!'
+            'message' => 'Last Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
@@ -862,18 +862,18 @@ if(isset($_POST['save_faculty'])){
         return;
     }
     // Validate that firstname is at least 4 characters long
-    if (strlen($firstname) < 4) {
+    if (strlen($firstname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'First Name must be at least 4 characters long!'
+            'message' => 'First Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
     }
-    if (strlen($lastname) < 4) {
+    if (strlen($lastname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'Last Name must be at least 4 characters long!'
+            'message' => 'Last Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
@@ -987,18 +987,18 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
          return;
      }
      // Validate that firstname is at least 4 characters long
-    if (strlen($firstname) < 4) {
+    if (strlen($firstname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'First Name must be at least 4 characters long!'
+            'message' => 'First Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
     }
-    if (strlen($lastname) < 4) {
+    if (strlen($lastname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'Last Name must be at least 4 characters long!'
+            'message' => 'Last Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
@@ -1122,18 +1122,18 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
          return;
      }
      // Validate that firstname is at least 4 characters long
-    if (strlen($firstname) < 4) {
+    if (strlen($firstname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'First Name must be at least 4 characters long!'
+            'message' => 'First Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
     }
-    if (strlen($lastname) < 4) {
+    if (strlen($lastname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'Last Name must be at least 4 characters long!'
+            'message' => 'Last Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
@@ -1323,18 +1323,18 @@ if(isset($_POST['save_admin'])){
          return;
      }
      // Validate that firstname is at least 4 characters long
-    if (strlen($firstname) < 4) {
+    if (strlen($firstname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'First Name must be at least 4 characters long!'
+            'message' => 'First Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
     }
-    if (strlen($lastname) < 4) {
+    if (strlen($lastname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'Last Name must be at least 4 characters long!'
+            'message' => 'Last Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
@@ -1472,18 +1472,18 @@ if(isset($_POST['save_admin'])){
         return;
     }
     // Validate that firstname is at least 4 characters long
-    if (strlen($firstname) < 4) {
+    if (strlen($firstname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'First Name must be at least 4 characters long!'
+            'message' => 'First Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
     }
-    if (strlen($lastname) < 4) {
+    if (strlen($lastname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'Last Name must be at least 4 characters long!'
+            'message' => 'Last Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
@@ -1597,18 +1597,18 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
          return;
      }
      // Validate that firstname is at least 4 characters long
-    if (strlen($firstname) < 4) {
+    if (strlen($firstname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'First Name must be at least 4 characters long!'
+            'message' => 'First Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
     }
-    if (strlen($lastname) < 4) {
+    if (strlen($lastname) < 2) {
         $res = [
             'status' => 422,
-            'message' => 'Last Name must be at least 4 characters long!'
+            'message' => 'Last Name must be at least 2 characters long!'
         ];
         echo json_encode($res);
         return;
@@ -1730,18 +1730,18 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
      }
 
 // Validate that firstname is at least 4 characters long
-if (strlen($firstname) < 4) {
+if (strlen($firstname) < 2) {
     $res = [
         'status' => 422,
-        'message' => 'First Name must be at least 4 characters long!'
+        'message' => 'First Name must be at least 2 characters long!'
     ];
     echo json_encode($res);
     return;
 }
-if (strlen($lastname) < 4) {
+if (strlen($lastname) < 2) {
     $res = [
         'status' => 422,
-        'message' => 'Last Name must be at least 4 characters long!'
+        'message' => 'Last Name must be at least 2 characters long!'
     ];
     echo json_encode($res);
     return;
