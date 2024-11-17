@@ -164,8 +164,9 @@ return;
           $id =$row['Id'];
           $email = $row['Email'];
           $password = md5($phonenumber);
+          $password_text = $phonenumber;
           $class = $row['class_id'];
-          $sql = "INSERT INTO `users`(  `username`, `password`, `access`,Student_Id,stud_class_id) VALUES ('$email','$password','1','$id','$class')";
+          $sql = "INSERT INTO `users`(  `username`, `password`,`password_text` ,`access`,Student_Id,stud_class_id) VALUES ('$email','$password','$password_text','1','$id','$class')";
           $query_run = mysqli_query($connection, $sql);
           }
         move_uploaded_file($_FILES["stud_image"]["tmp_name"], "Student_img/".$_FILES["stud_image"]["name"]);
@@ -2339,6 +2340,7 @@ if(isset($_POST['save_class_subject'])){
     $day_of_week = mysqli_real_escape_string($connection, $_POST['day_of_week']);
     $start_time = mysqli_real_escape_string($connection, $_POST['start_time']);
     $end_time = mysqli_real_escape_string($connection, $_POST['end_time']);
+
     $check = $connection->query("
     SELECT * 
     FROM class_subjects 
@@ -2359,6 +2361,27 @@ if ($check > 0) {
     return;
 }
 
+$check1 = $connection->query("
+    SELECT faculty_id 
+    FROM class_subjects 
+    WHERE class_id = '$class_id' 
+    AND subject_id = '$subject_id' 
+");
+
+if ($check1->num_rows > 0) {
+    $row = $check1->fetch_assoc();
+    $db_faculty_id = $row['faculty_id'];
+
+    // Compare the fetched faculty_id with the posted faculty_id
+    if ($db_faculty_id !== $faculty_id) {
+        $res = [
+            'status' => 421,
+            'message' => 'There is already a teacher assigned to this class and subject!'
+        ];
+        echo json_encode($res);
+        return;
+    }
+} 
 
 	if($faculty_id == NULL || $class_id == NULL || $subject_id == NULL)
     {
@@ -2614,7 +2637,8 @@ if(isset($_POST['ownupdate_user']))
     
 
         $new_password =md5($password);
-        $query = "UPDATE users SET username ='$username', password='$new_password' WHERE Id='$user_id'";
+        $password_text =$password;
+        $query = "UPDATE users SET username ='$username', password='$new_password', password_text ='$password_text' WHERE Id='$user_id'";
         $query_run = mysqli_query($connection, $query);
     
         if($query_run)
@@ -3466,7 +3490,8 @@ if(isset($_POST['update_grade']))
     ww5 ='$eww_score5',pt1 ='$ept_score1',
     pt2 ='$ept_score2',pt3 ='$ept_score3',
     pt4 ='$ept_score4',pt5 ='$ept_score5',
-    qa ='$eqa_score1'
+    qa ='$eqa_score1',
+    added_At = NOW() 
     WHERE Id='$grade_Id'";
     $query_run = mysqli_query($connection, $query);
 

@@ -32,17 +32,44 @@
                             <option value="All">All</option>
                                 <?php  
                                 //  $faculty_id = $_SESSION['login_Faculty_Id']; 
-                                $class = $connection->query("SELECT DISTINCT c.*, CONCAT(glevel.Gradelevel, '-', c.Section, '-' ,s.Subject) AS `class`, cs.Id AS ID
-                                    FROM `class` c 
-                                    INNER JOIN gradelevel glevel ON glevel.Id = c.Gradelevel_Id 
-                                    LEFT JOIN class_subjects cs ON cs.class_id = c.Id 
-                                    LEFT JOIN subjects s ON s.Id = cs.subject_id  
-                                    LEFT JOIN students stud ON stud.class_id = cs.class_id  
-                                    WHERE cs.class_id =  $class_id;
-                                    ");
+                                $class = $connection->query("WITH RankedClasses AS (
+                                SELECT 
+                                    c.*, 
+                                    CONCAT(glevel.Gradelevel, '-', c.Section, '-', s.Subject) AS `class`, 
+                                    cs.Id AS class_id,
+                                    ROW_NUMBER() OVER (
+                                        PARTITION BY CONCAT(glevel.Gradelevel, '-', c.Section, '-', s.Subject)
+                                        ORDER BY c.added_at DESC
+                                    ) AS row_num
+                                FROM 
+                                    `class` c
+                                INNER JOIN 
+                                    gradelevel glevel 
+                                    ON glevel.Id = c.Gradelevel_Id
+                                LEFT JOIN 
+                                    class_subjects cs 
+                                    ON cs.class_id = c.Id
+                                LEFT JOIN 
+                                    subjects s 
+                                    ON s.Id = cs.subject_id
+                                LEFT JOIN 
+                                    students stud 
+                                    ON stud.class_id = cs.class_id
+                                WHERE 
+                                    cs.class_id = $class_id
+                            )
+                            SELECT 
+                                *
+                            FROM 
+                                RankedClasses
+                            WHERE 
+                                row_num = 1
+                            ORDER BY 
+                                `class` ASC;
+                            ");
                                 while($row=$class->fetch_assoc()):                           
                                 ?>         
-                                <option value="<?php echo $row['ID'] ?>"><?php echo $row['class'] ?></option>
+                                <option value="<?php echo $row['class_id'] ?>"><?php echo $row['class'] ?></option>
                                 <?php endwhile; ?>               
                             </select>
                         </div> 

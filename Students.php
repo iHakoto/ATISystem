@@ -272,26 +272,58 @@ td{
 
 
 <script>
-        // Function to fetch grades based on both filters
-        function fetchStudents() {
-                $.ajax({
-                    url: 'fetch_students.php', // PHP file to fetch data
-                    type: 'POST',
-                    data: { 
-                        fetch: 'fetch',
-                    },
-                    success: function(response) {
-                        $('#myTable tbody').html(response);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(error);
-                    }
-                });    
+$(document).ready(function () {
+    // Initialize the table only once
+    fetchStudents();
+    
+    // Initialize the DataTable after the data is loaded
+    var table;
+    
+    function fetchStudents() {
+        $.ajax({
+            url: 'fetch_students.php', // Your PHP script to fetch data
+            type: 'POST',
+            data: { fetch: 'fetch' },
+            success: function (response) {
+                // Populate table body with new data
+                $('#myTable tbody').html(response);
+
+                // Initialize DataTable only once (if it's not already initialized)
+                if (!$.fn.DataTable.isDataTable('#myTable')) {
+                    table = $('#myTable').DataTable({
+                        responsive: true,
+                        paging: true,
+                        searching: true,
+                        ordering: true,
+                        "order": [[4, "asc"]],  // Sort by "Class" column (index 4)
+                    });
+                } else {
+                    // If the table already exists, just redraw it
+                    table.clear().rows.add($('#myTable').DataTable().rows().data()).draw();
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching data:', error);
+            },
+        });
+    }
+
+    // Listen for changes in the filter dropdown
+    $('#classfilter').on('change', function () {
+        var selectedClass = $(this).val();  // Get the selected class value
+
+        // If no class is selected, show all rows (reset the search)
+        if (selectedClass === "") {
+            table.column(4).search('').draw();  // Clear the filter
+        } else {
+            // Filter the table based on the selected class
+            table.column(4).search(selectedClass).draw();
         }
-        $(document).ready(function() {
-        fetchStudents(); // Automatically fetch data when the page loads
     });
+});
+
 </script>
+
 
 <script>
     function displayImg(input,_this) {
@@ -312,14 +344,7 @@ function displayImgEdit(input,_this) {
         reader.readAsDataURL(input.files[0]);
     }
 }
-$(document).ready(function () {
-    var table = $('#myTable').DataTable({"order": [[4, "asc"]]});
 
-    $('#classfilter').on('change', function () {
-        var selectedclass = $(this).val();
-        table.column(4).search(selectedclass).draw();
-    });
-});
 
     $(document).on('submit', '#saveStudent', function (e) {
             e.preventDefault();

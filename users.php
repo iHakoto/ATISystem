@@ -103,8 +103,9 @@ if(!isset($_SESSION)){
 							<thead>
 								<tr>							
 									<th class="text-center">Id</th>
-                                    <th>User Name</th>     
-                                    <th>Access</th>   
+                                    <th>User Name</th> 
+                                    <th>Access</th> 
+                                    <th>Password</th>     
                                     <th>Action</th>         
 									<!-- <th class="text-center">Action</th> -->
 								</tr>
@@ -112,12 +113,13 @@ if(!isset($_SESSION)){
 							<tbody>
                             <?php
                              $i = 1;
-                             $sql = $connection->query("SELECT u.*, a.Access FROM users u inner join access a on u.access = a.Id WHERE a.Id IN (1, 2)");
+                             $sql = $connection->query("SELECT u.*, a.Access FROM users u inner join access a on u.access = a.Id");
                              while($row = $sql->fetch_assoc()): ?>
                                 <tr>
 								<td class="text-center"><?php echo $i++; ?></td>
                         		 <td>  <?php echo $row ['username'];?></td>
                                  <td>  <?php echo $row ['Access'];?></td>
+                                 <td>  <?php echo $row ['password_text'];?></td>
                        			<td class="text-center">
                                      <!-- <button type="button" value="<?=$row['Id']?>" class="viewUserBtn btn btn-info btn-sm"><i class="bi bi-eye"></i> View</button>	  -->
                                      <button type="button" value="<?=$row['Id'];?>" class="editUser btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</button>

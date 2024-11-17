@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2024 at 05:27 PM
+-- Generation Time: Nov 16, 2024 at 06:52 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -139,9 +139,9 @@ CREATE TABLE `class_subjects` (
 INSERT INTO `class_subjects` (`Id`, `class_id`, `subject_id`, `faculty_id`, `day`, `start_time`, `end_time`, `added_at`) VALUES
 (32, 22, 11, 65, '7', '18:00:00', '20:00:00', '2024-09-29 17:02:24'),
 (33, 23, 12, 65, '7', '14:00:00', '16:00:00', '2024-09-29 17:02:41'),
-(36, 22, 11, 66, '7', '20:00:00', '21:00:00', '2024-09-29 22:41:40'),
 (37, 24, 13, 65, '7', '20:00:00', '21:00:00', '2024-10-20 00:00:13'),
-(38, 24, 11, 65, '10', '21:00:00', '23:00:00', '2024-10-26 01:53:22');
+(38, 24, 11, 65, '10', '21:00:00', '23:00:00', '2024-10-26 01:53:22'),
+(39, 24, 11, 65, '11', '21:00:00', '23:00:00', '2024-11-15 00:41:16');
 
 -- --------------------------------------------------------
 
@@ -209,9 +209,16 @@ CREATE TABLE `gradelevel` (
 --
 
 INSERT INTO `gradelevel` (`Id`, `Gradelevel`, `Description`, `added_at`) VALUES
-(15, 'Grade 1', 'test1', '2022-12-18 13:45:55'),
+(15, 'Grade 1', '', '2022-12-18 13:45:55'),
 (17, 'Grade 2', '', '2024-09-26 20:54:10'),
-(18, 'Grade 3', '', '2024-10-19 23:58:38');
+(18, 'Grade 3', '', '2024-10-19 23:58:38'),
+(19, 'Grade 4', '', '2024-11-14 23:50:41'),
+(20, 'Grade 5', '', '2024-11-14 23:50:47'),
+(21, 'Grade 6', '', '2024-11-14 23:50:52'),
+(22, 'Grade 7', '', '2024-11-14 23:50:56'),
+(23, 'Grade 8', '', '2024-11-14 23:51:03'),
+(24, 'Grade 9', '', '2024-11-14 23:51:08'),
+(25, 'Grade 10', '', '2024-11-14 23:51:13');
 
 -- --------------------------------------------------------
 
@@ -241,19 +248,17 @@ CREATE TABLE `grades` (
   `pt4` int(10) NOT NULL,
   `pt5` int(10) NOT NULL,
   `qa` int(10) NOT NULL,
-  `addet_At` datetime NOT NULL DEFAULT current_timestamp()
+  `added_At` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `grades`
 --
 
-INSERT INTO `grades` (`Id`, `student_id`, `faculty_id`, `class_subject_id`, `quarter_id`, `written_work`, `performance_task`, `quarterly_assesment`, `quarterly_grade`, `comment`, `ww1`, `ww2`, `ww3`, `ww4`, `ww5`, `pt1`, `pt2`, `pt3`, `pt4`, `pt5`, `qa`, `addet_At`) VALUES
-(73, 188, 65, 38, '3', '23', '10', '23', '56.00', '', 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, '2024-11-12 23:00:43'),
-(74, 188, 65, 37, '1', '20.20', '10', '23', '53.20', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-11-12 23:51:44'),
-(75, 179, 65, 37, '1', '31', '10', '23', '64.00', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-11-12 23:52:02'),
-(76, 179, 65, 38, '1', '44', '23', '12', '79.00', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-11-12 23:52:44'),
-(77, 188, 65, 37, '2', '30', '12', '23', '65.00', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-11-12 23:55:01');
+INSERT INTO `grades` (`Id`, `student_id`, `faculty_id`, `class_subject_id`, `quarter_id`, `written_work`, `performance_task`, `quarterly_assesment`, `quarterly_grade`, `comment`, `ww1`, `ww2`, `ww3`, `ww4`, `ww5`, `pt1`, `pt2`, `pt3`, `pt4`, `pt5`, `qa`, `added_At`) VALUES
+(84, 179, 65, 38, '1', '30.00', '50.00', '20.00', '100.00', '', 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 100, '2024-11-16 23:14:09'),
+(85, 188, 65, 38, '1', '30.00', '50.00', '20.00', '100.00', '', 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 100, '2024-11-16 23:14:48'),
+(86, 179, 65, 38, '2', '30.00', '50.00', '20.00', '100.00', '', 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 100, '2024-11-16 23:28:57');
 
 -- --------------------------------------------------------
 
@@ -301,7 +306,7 @@ CREATE TABLE `students` (
 INSERT INTO `students` (`Id`, `Firstname`, `Middlename`, `Lastname`, `Email`, `Student_img`, `class_id`, `phonenumber`, `Added_at`) VALUES
 (178, 'Brix', 'test', 'Paredes', 'brix@gmail.com', '', 22, '09222222222', '2024-09-29 17:01:07'),
 (179, 'Romel', 'test', 'Panganiban', 'romel1@gmail.com', '3.png', 24, '09344333333', '2024-09-29 17:01:34'),
-(188, 'Rowell', '', 'Gimena', 'willgimena1@gmail.com', 'GRITTY.jpg', 24, '09758869674', '2024-10-19 23:58:20');
+(188, 'Rowell', '', 'Gimena', 'willgimena@gmail.com', 'GRITTY.jpg', 24, '09758869674', '2024-10-19 23:58:20');
 
 -- --------------------------------------------------------
 
@@ -387,6 +392,7 @@ CREATE TABLE `users` (
   `Id` int(200) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `password_text` varchar(10) NOT NULL,
   `access` varchar(100) NOT NULL,
   `Faculty_Id` int(50) NOT NULL,
   `Student_Id` int(50) NOT NULL,
@@ -399,13 +405,13 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`Id`, `username`, `password`, `access`, `Faculty_Id`, `Student_Id`, `Admin_Id`, `stud_class_id`, `resettoken`) VALUES
-(44, 'williamrowellgimena1@yahoo.com', 'fcea920f7412b5da7be0cf42b8c93759', '3', 0, 0, 76, 0, 'NULL'),
-(113, 'Dave1@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', '2', 65, 0, 0, 0, ''),
-(114, 'jerome1@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', '2', 66, 0, 0, 0, ''),
-(115, 'brix@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', '1', 0, 178, 0, 22, ''),
-(116, 'romel1@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', '1', 0, 179, 0, 24, ''),
-(129, 'willgimena1@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759', '1', 0, 188, 0, 24, '');
+INSERT INTO `users` (`Id`, `username`, `password`, `password_text`, `access`, `Faculty_Id`, `Student_Id`, `Admin_Id`, `stud_class_id`, `resettoken`) VALUES
+(44, 'williamrowellgimena1@yahoo.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '3', 0, 0, 76, 0, 'NULL'),
+(113, 'Dave1@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '2', 65, 0, 0, 0, ''),
+(114, 'jerome1@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '2', 66, 0, 0, 0, ''),
+(115, 'brix@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '1', 0, 178, 0, 22, ''),
+(116, 'romel1@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '1', 0, 179, 0, 24, ''),
+(129, 'willgimena@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', '1', 0, 188, 0, 24, 'NULL');
 
 --
 -- Indexes for dumped tables
@@ -534,7 +540,7 @@ ALTER TABLE `class`
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `days`
@@ -552,13 +558,13 @@ ALTER TABLE `faculty`
 -- AUTO_INCREMENT for table `gradelevel`
 --
 ALTER TABLE `gradelevel`
-  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `Id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `grades`
 --
 ALTER TABLE `grades`
-  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `quarters`

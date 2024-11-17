@@ -32,70 +32,72 @@
                         <input type="hidden" name="cs_id" id="cs_id" class="form-control" />
                         <input type="hidden" name="quarter_id" id="quarter_id" class="form-control" />
                     </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label for="ww_score1">Score 1</label>
-                            <input type="number" name="ww_score1" id="ww_score1" class="form-control" min="0" />
-                        </div>
-                        <div class="col">
-                            <label for="ww_score2">Score 2</label>
-                            <input type="number" name="ww_score2" id="ww_score2" class="form-control" min="0" />
-                        </div>
-                        <div class="col">
-                            <label for="ww_score3">Score 3</label>
-                            <input type="number" name="ww_score3" id="ww_score3" class="form-control" min="0" />
-                        </div>
-                        <div class="col">
-                            <label for="ww_score4">Score 4</label>
-                            <input type="number" name="ww_score4" id="ww_score4" class="form-control" min="0" />
-                        </div>
-                        <div class="col">
-                            <label for="ww_score5">Score 5</label>
-                            <input type="number" name="ww_score5" id="ww_score5" class="form-control" min="0" />
-                        </div>
-                    </div>
-                    <div class="mb-3">
-    <label for="written_total">Written works</label>
-    <input type="number" name="written_total" id="written_total" class="form-control" min="0" step="0.01" />
+                    <div class="row">
+    <div class="col">
+        <label for="ww_score1">Score 1</label>
+        <input type="number" name="ww_score1" id="ww_score1" class="form-control score-input" min="0" />
+    </div>
+    <div class="col">
+        <label for="ww_score2">Score 2</label>
+        <input type="number" name="ww_score2" id="ww_score2" class="form-control score-input" min="0" />
+    </div>
+    <div class="col">
+        <label for="ww_score3">Score 3</label>
+        <input type="number" name="ww_score3" id="ww_score3" class="form-control score-input" min="0" />
+    </div>
+    <div class="col">
+        <label for="ww_score4">Score 4</label>
+        <input type="number" name="ww_score4" id="ww_score4" class="form-control score-input" min="0" />
+    </div>
+    <div class="col">
+        <label for="ww_score5">Score 5</label>
+        <input type="number" name="ww_score5" id="ww_score5" class="form-control score-input" min="0" />
+    </div>
 </div>
 
-                    <div class="row mb-3">
-                            <div class="col">
-                                <label for="score1">Score 1</label>
-                                <input type="number" name="pt_score1" id="pt_score1" class="form-control" min="0" />
-                            </div>
-                            <div class="col">
-                                <label for="score2">Score 2</label>
-                                <input type="number" name="pt_score2" id="pt_score2" class="form-control" min="0" />
-                            </div>
-                            <div class="col">
-                                <label for="score3">Score 3</label>
-                                <input type="number" name="pt_score3" id="pt_score3" class="form-control" min="0" />
-                            </div>
-                            <div class="col">
-                                <label for="score4">Score 4</label>
-                                <input type="number" name="pt_score4" id="pt_score4" class="form-control" min="0" />
-                            </div>
-                            <div class="col">
-                                <label for="score5">Score 5</label>
-                                <input type="number" name="pt_score5" id="pt_score5" class="form-control" min="0" />
-                            </div>
-                        </div>
+                <div class="mb-3">
+                    <label for="written_total">Written works</label>
+                    <input type="number" name="written_total" id="written_total" class="form-control" min="0" step="0.01" readonly />
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="score1">Score 1</label>
+                        <input type="number" name="pt_score1" id="pt_score1" class="form-control pt-score-input" min="0" />
+                    </div>
+                    <div class="col">
+                        <label for="score2">Score 2</label>
+                        <input type="number" name="pt_score2" id="pt_score2" class="form-control pt-score-input" min="0" />
+                    </div>
+                    <div class="col">
+                        <label for="score3">Score 3</label>
+                        <input type="number" name="pt_score3" id="pt_score3" class="form-control pt-score-input" min="0" />
+                    </div>
+                    <div class="col">
+                        <label for="score4">Score 4</label>
+                        <input type="number" name="pt_score4" id="pt_score4" class="form-control pt-score-input" min="0" />
+                    </div>
+                    <div class="col">
+                        <label for="score5">Score 5</label>
+                        <input type="number" name="pt_score5" id="pt_score5" class="form-control pt-score-input" min="0" />
+                    </div>
+                </div>
+
                     <div class="mb-3">
                         <label for="performance_task">Performance task</label>
-                        <input type="number" name="performance_task" id="performance_task" class="form-control" min="0" />
+                        <input type="number" name="performance_task" id="performance_task" class="form-control" min="0" step="0.01" readonly />
                     </div>
                     <div class="row mb-3">
-                        <div class="col">
-                            <label for="score1">Score 1</label>
-                            <input type="number" name="qa_score1" id="qa_score1" class="form-control" min="0" />
-                        </div>
-
-                    </div>
-                    <div class="mb-3">
-                        <label for="quarter_assesment">Quarterly Assessment</label>
-                        <input type="number" name="quarter_assesment" id="quarter_assesment" class="form-control" min="0" />
-                    </div>
+    <!-- Quarterly Assessment Section -->
+    <div class="col">
+        <label for="qa_score1">Score 1</label>
+        <input type="number" name="qa_score1" id="qa_score1" class="form-control qa-score-input" min="0" />
+    </div>
+</div>
+<div class="mb-3">
+    <label for="quarter_assesment">Quarterly Assessment</label>
+    <input type="number" name="quarter_assesment" id="quarter_assesment" class="form-control" min="0" step="0.01" readonly />
+</div>
 
                     <div class="mb-3">
                         <label for="">Quarterly Grade</label>
@@ -134,71 +136,75 @@
                         <input type="hidden" name="grade_Id" id="grade_Id" class="form-control" />
                     </div>
                     <div class="row mb-3">
-                    <div class="col">
-                            <label for="ww_score1">Score 1</label>
-                            <input type="number" name="eww_score1" id="eww_score1" class="form-control" min="0" />
-                        </div>
-                        <div class="col">
-                            <label for="ww_score2">Score 2</label>
-                            <input type="number" name="eww_score2" id="eww_score2" class="form-control" min="0" />
-                        </div>
-                        <div class="col">
-                            <label for="ww_score3">Score 3</label>
-                            <input type="number" name="eww_score3" id="eww_score3" class="form-control" min="0" />
-                        </div>
-                        <div class="col">
-                            <label for="ww_score4">Score 4</label>
-                            <input type="number" name="eww_score4" id="eww_score4" class="form-control" min="0" />
-                        </div>
-                        <div class="col">
-                            <label for="ww_score5">Score 5</label>
-                            <input type="number" name="eww_score5" id="eww_score5" class="form-control" min="0" />
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                    <label for="">Written works</label>
-                    <input type="text" name="ewritten_work" id="ewritten_work" class="form-control" />
-                </div>
-                <div class="row mb-3">
-                            <div class="col">
-                                <label for="score1">Score 1</label>
-                                <input type="number" name="ept_score1" id="ept_score1" class="form-control" min="0" />
-                            </div>
-                            <div class="col">
-                                <label for="score2">Score 2</label>
-                                <input type="number" name="ept_score2" id="ept_score2" class="form-control" min="0" />
-                            </div>
-                            <div class="col">
-                                <label for="score3">Score 3</label>
-                                <input type="number" name="ept_score3" id="ept_score3" class="form-control" min="0" />
-                            </div>
-                            <div class="col">
-                                <label for="score4">Score 4</label>
-                                <input type="number" name="ept_score4" id="ept_score4" class="form-control" min="0" />
-                            </div>
-                            <div class="col">
-                                <label for="score5">Score 5</label>
-                                <input type="number" name="ept_score5" id="ept_score5" class="form-control" min="0" />
-                            </div>
-                        </div>
-                <div class="mb-3">
-                    <label for="">Performance task</label>
-                    <input type="text" name="eperformance_task" id="eperformance_task" class="form-control" />
-                </div>
-                <div class="row mb-3">
-                        <div class="col">
-                            <label for="score1">Score 1</label>
-                            <input type="number" name="eqa_score1" id="eqa_score1" class="form-control" min="0" />
-                        </div>
+    <!-- Enhanced Written Works Section -->
+    <div class="col">
+        <label for="eww_score1">Score 1</label>
+        <input type="number" name="eww_score1" id="eww_score1" class="form-control eww-score-input" min="0" />
+    </div>
+    <div class="col">
+        <label for="eww_score2">Score 2</label>
+        <input type="number" name="eww_score2" id="eww_score2" class="form-control eww-score-input" min="0" />
+    </div>
+    <div class="col">
+        <label for="eww_score3">Score 3</label>
+        <input type="number" name="eww_score3" id="eww_score3" class="form-control eww-score-input" min="0" />
+    </div>
+    <div class="col">
+        <label for="eww_score4">Score 4</label>
+        <input type="number" name="eww_score4" id="eww_score4" class="form-control eww-score-input" min="0" />
+    </div>
+    <div class="col">
+        <label for="eww_score5">Score 5</label>
+        <input type="number" name="eww_score5" id="eww_score5" class="form-control eww-score-input" min="0" />
+    </div>
+</div>
+<div class="mb-3">
+    <label for="ewritten_work">Written Works</label>
+    <input type="text" name="ewritten_work" id="ewritten_work" class="form-control" readonly/>
+</div>
 
-                    </div>
-                <div class="mb-3">
-                    <label for="">Quarterly Assesment</label>
-                    <input type="text" name="equarter_assesment" id="equarter_assesment" class="form-control" />
-                </div>  
+<div class="row mb-3">
+    <!-- Enhanced Performance Task Section -->
+    <div class="col">
+        <label for="ept_score1">Score 1</label>
+        <input type="number" name="ept_score1" id="ept_score1" class="form-control ept-score-input" min="0" />
+    </div>
+    <div class="col">
+        <label for="ept_score2">Score 2</label>
+        <input type="number" name="ept_score2" id="ept_score2" class="form-control ept-score-input" min="0" />
+    </div>
+    <div class="col">
+        <label for="ept_score3">Score 3</label>
+        <input type="number" name="ept_score3" id="ept_score3" class="form-control ept-score-input" min="0" />
+    </div>
+    <div class="col">
+        <label for="ept_score4">Score 4</label>
+        <input type="number" name="ept_score4" id="ept_score4" class="form-control ept-score-input" min="0" />
+    </div>
+    <div class="col">
+        <label for="ept_score5">Score 5</label>
+        <input type="number" name="ept_score5" id="ept_score5" class="form-control ept-score-input" min="0" />
+    </div>
+</div>
+<div class="mb-3">
+    <label for="eperformance_task">Performance Task</label>
+    <input type="text" name="eperformance_task" id="eperformance_task" class="form-control" readonly />
+</div>
+
+<div class="row mb-3">
+    <!-- Enhanced Quarterly Assessment Section -->
+    <div class="col">
+        <label for="eqa_score1">Score 1</label>
+        <input type="number" name="eqa_score1" id="eqa_score1" class="form-control eqa-score-input" min="0" />
+    </div>
+</div>
+<div class="mb-3">
+    <label for="equarter_assesment">Quarterly Assessment</label>
+    <input type="text" name="equarter_assesment" id="equarter_assesment" class="form-control" readonly />
+</div>
                 <div class="mb-3">
                     <label for="equarter_grade">Quarterly Grade</label>
-                    <input type="number" name="equarter_grade" id="equarter_grade" class="form-control" value="0" readonly />
+                    <input type="number" name="equarter_grade" id="equarter_grade" class="form-control" value="0"  readonly/>
                 </div>
 
                 <div class="mb-3">
@@ -233,34 +239,67 @@
                     <h4><b id="quarterHeading">Select Quarter</b></h4>
                     </div>
                     <div class="mb-0 mt-3 ml-3">
-                            <label for="classfilter">Class Filter:</label>
-                            <select id="classfilter" class="form-select">
-                            <option value="">Select Class</option>
-                                <?php  
-                                //  $faculty_id = $_SESSION['login_Faculty_Id']; 
-                                $class = $connection->query("SELECT 
-                                c.*, 
-                                CONCAT(glevel.Gradelevel, '-', c.Section, '-' ,s.Subject) AS `class`, cs.Id AS ID
-                            FROM 
-                                `class` c 
-                            INNER JOIN 
-                                gradelevel glevel 
-                                ON glevel.Id = c.Gradelevel_Id 
-                            LEFT JOIN 
-                                class_subjects cs 
-                                ON cs.class_id = c.Id 
-                            LEFT JOIN 
-                                subjects s 
-                                ON s.Id = cs.subject_id  
-                                WHERE cs.faculty_id = $faculty_id
-                            ORDER BY 
-                                CONCAT(glevel.Gradelevel, '-', c.Section) ASC;");
-                                while($row=$class->fetch_assoc()):                           
-                                ?>         
-                                <option value="<?php echo $row['ID'] ?>"><?php echo $row['class'] ?></option>
-                                <?php endwhile; ?>               
-                            </select>
-                        </div> 
+    <label for="classfilter">Class Filter:</label>
+    <select id="classfilter" class="form-select">
+        <option value="">Select Class</option>
+        <?php  
+        // Check if faculty_id is set and not empty
+        $faculty_id = isset($_SESSION['login_Faculty_Id']) ? $_SESSION['login_Faculty_Id'] : null;
+
+        // Define the query based on the presence of faculty_id
+        if (empty($faculty_id)) {
+            $classQuery = "
+             WITH RankedClasses AS ( SELECT c.*, CONCAT(glevel.Gradelevel, '-', c.Section, '-', s.Subject, '-', f.Firstname,' ', f.Middlename ,' ', f.Lastname) AS class, cs.Id AS class_id, cs.faculty_id AS cs_faculty, ROW_NUMBER() OVER ( PARTITION BY cs.faculty_id, CONCAT(glevel.Gradelevel, '-', c.Section, '-', s.Subject) ORDER BY c.added_at ASC, cs.Id ASC ) AS row_num FROM class c INNER JOIN gradelevel glevel ON glevel.Id = c.Gradelevel_Id LEFT JOIN class_subjects cs ON cs.class_id = c.Id LEFT JOIN subjects s ON s.Id = cs.subject_id LEFT JOIN faculty f ON f.Id = cs.faculty_id ) SELECT * FROM RankedClasses WHERE row_num = 1 ORDER BY class ASC;
+
+            ";
+        } else {
+            $classQuery = "
+                WITH RankedClasses AS (
+    SELECT 
+        c.*, 
+        CONCAT(glevel.Gradelevel, '-', c.Section, '-', s.Subject) AS class, 
+        cs.Id AS class_id,
+        ROW_NUMBER() OVER (
+            PARTITION BY CONCAT(glevel.Gradelevel, '-', c.Section, '-', s.Subject)
+            ORDER BY c.added_at ASC
+        ) AS row_num
+    FROM 
+        class c
+    INNER JOIN 
+        gradelevel glevel 
+        ON glevel.Id = c.Gradelevel_Id
+    LEFT JOIN 
+        class_subjects cs 
+        ON cs.class_id = c.Id
+    LEFT JOIN 
+        subjects s 
+        ON s.Id = cs.subject_id
+    WHERE 
+        cs.faculty_id = $faculty_id
+)
+SELECT 
+    *
+FROM 
+    RankedClasses
+WHERE 
+    row_num = 1
+ORDER BY 
+    class ASC;
+
+            ";
+        }
+
+        // Execute the query
+        $class = $connection->query($classQuery);
+
+        // Generate the options for the dropdown
+        while ($row = $class->fetch_assoc()):                          
+        ?>
+            <option value="<?php echo $row['class_id'] ?>"><?php echo $row['class'] ?></option>
+        <?php endwhile; ?>               
+    </select>
+</div>
+
                         <div class="mb-0 mt-3 ml-3">
                             <label for="quarter">Quarter Filter:</label>
                             <select id="quarter" class="form-select">
@@ -283,6 +322,7 @@
                                         <th class="text-center">Name</th>
                                         <th class="text-center" id="quarterGradeHeader">First Quarter Grade</th>
                                         <th class="text-center" id="quarterGradeHeader">Comment/Remarks</th>
+                                        <th class="text-center" id="quarterGradeHeader">Last modified date</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -318,7 +358,7 @@
     const equarterGradeInput = document.getElementById('equarter_grade');
 
     // Function to calculate the total grade
-    function calculateQuarterlyGrade() {
+    function calculateQuarterlyGrade1() {
         let ewrittenWork = parseFloat(ewrittenWorkInput.value) || 0;
         let eperformanceTask = parseFloat(eperformanceTaskInput.value) || 0;
         let equarterAssesment = parseFloat(equarterAssesmentInput.value) || 0;
@@ -364,9 +404,133 @@
 <script>
 var f_id = <?php echo json_encode($faculty_id); ?>; // Pass the PHP variable to JavaScript
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Enhanced Written Works Calculation
+        const ewwInputs = document.querySelectorAll('.eww-score-input');
+        const ewrittenWorkInput = document.getElementById('ewritten_work');
 
+        const calculateEWrittenResult = () => {
+            let total = 0;
+            ewwInputs.forEach(input => {
+                const value = parseFloat(input.value) || 0;
+                total += value;
+            });
 
+            const result = total * 2 * 0.30;
+            ewrittenWorkInput.value = result.toFixed(2);
+            calculateQuarterlyGrade1();
+        };
 
+        ewwInputs.forEach(input => {
+            input.addEventListener('input', calculateEWrittenResult);
+        });
+
+        // Enhanced Performance Task Calculation
+        const eptInputs = document.querySelectorAll('.ept-score-input');
+        const eperformanceTaskInput = document.getElementById('eperformance_task');
+
+        const calculateEPerformanceResult = () => {
+            let total = 0;
+            eptInputs.forEach(input => {
+                const value = parseFloat(input.value) || 0;
+                total += value;
+            });
+
+            const result = total * 2 * 0.50;
+            eperformanceTaskInput.value = result.toFixed(2);
+            calculateQuarterlyGrade1();
+        };
+
+        eptInputs.forEach(input => {
+            input.addEventListener('input', calculateEPerformanceResult);
+        });
+
+        // Enhanced Quarterly Assessment Calculation
+        const eqaInputs = document.querySelectorAll('.eqa-score-input');
+        const equarterAssessmentInput = document.getElementById('equarter_assesment');
+
+        const calculateEQuarterlyResult = () => {
+            let total = 0;
+            eqaInputs.forEach(input => {
+                const value = parseFloat(input.value) || 0;
+                total += value;
+            });
+
+            const result = total * 0.20;
+            equarterAssessmentInput.value = result.toFixed(2);
+            calculateQuarterlyGrade1();
+        };
+
+        eqaInputs.forEach(input => {
+            input.addEventListener('input', calculateEQuarterlyResult);
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Written Works Calculation
+        const writtenInputs = document.querySelectorAll('.score-input');
+        const writtenTotalInput = document.getElementById('written_total');
+
+        const calculateWrittenResult = () => {
+            let total = 0;
+            writtenInputs.forEach(input => {
+                const value = parseFloat(input.value) || 0;
+                total += value;
+                
+            });
+
+            const result = total * 2 * 0.30;
+            writtenTotalInput.value = result.toFixed(2);
+            calculateQuarterlyGrade(); 
+        };
+
+        writtenInputs.forEach(input => {
+            input.addEventListener('input', calculateWrittenResult);
+        });
+
+        // Performance Task Calculation
+        const performanceInputs = document.querySelectorAll('.pt-score-input');
+        const performanceTaskInput = document.getElementById('performance_task');
+
+        const calculatePerformanceResult = () => {
+            let total = 0;
+            performanceInputs.forEach(input => {
+                const value = parseFloat(input.value) || 0;
+                total += value;
+            });
+
+            const result = total * 2 * 0.50;
+            performanceTaskInput.value = result.toFixed(2);
+            calculateQuarterlyGrade(); 
+        };
+
+        performanceInputs.forEach(input => {
+            input.addEventListener('input', calculatePerformanceResult);
+        });
+ // Quarterly Assessment Calculation
+ const quarterlyInputs = document.querySelectorAll('.qa-score-input');
+        const quarterAssessmentInput = document.getElementById('quarter_assesment');
+
+        const calculateQuarterlyResult = () => {
+            let total = 0;
+            quarterlyInputs.forEach(input => {
+                const value = parseFloat(input.value) || 0;
+                total += value;
+            });
+
+            const result = total * 0.20;
+            quarterAssessmentInput.value = result.toFixed(2);
+            calculateQuarterlyGrade(); 
+        };
+
+        quarterlyInputs.forEach(input => {
+            input.addEventListener('input', calculateQuarterlyResult);
+        });
+
+    });
+</script>
 <script>
 $('#gradeAddModal').on('hidden.bs.modal', function () {
     // Reset specific fields
@@ -436,23 +600,80 @@ function openGradeAddModal(studentId) {
                 });
             }
         }
-        function validateInput() {
-        const writtenTotal = document.getElementById("written_total");
-        if (parseFloat(writtenTotal.value) > 30) {
-            alert("Value cannot exceed 30.");
-            return false;
+        function validateQuarterGrade() {
+            const quarter_grade = document.getElementById("quarter_grade");
+            
+            if (parseFloat(quarter_grade.value) < 75) {
+                quarter_grade.style.borderColor = "red";  // Change border color to red
+                alert("Quarter Grade should not be less than 75.");
+                return false;
+            } else {
+                quarter_grade.style.borderColor = "";  // Reset border color
+            }
+            return true;
         }
-        return true;
-    }
+
+        function validateWritten() {
+            const writtenTotal = document.getElementById("written_total");
+
+            // Check if the value exceeds 30
+            if (parseFloat(writtenTotal.value) > 30) {
+                writtenTotal.style.borderColor = "red";  // Change border color to red
+                alert("Written Works should not exceed in 30.");
+                return false;
+            } else {
+                writtenTotal.style.borderColor = "";  // Reset border color
+            }
+            return true;
+        }
+        function validateTP() {
+            const performance_task = document.getElementById("performance_task");
+
+            // Check if the value exceeds 30
+            if (parseFloat(performance_task.value) > 50) {
+                performance_task.style.borderColor = "red";  // Change border color to red
+                alert("Taskperformance should not in exceed 50.");
+                return false;
+            } else {
+                performance_task.style.borderColor = "";  // Reset border color
+            }
+            return true;
+        }
+
+        function validateQA() {
+            const quarter_assesment = document.getElementById("quarter_assesment");
+
+            // Check if the value exceeds 30
+            if (parseFloat(quarter_assesment.value) > 20) {
+                quarter_assesment.style.borderColor = "red";  // Change border color to red
+                alert("Taskperformance should not in exceed 20.");
+                return false;
+            } else {
+                quarter_assesment.style.borderColor = "";  // Reset border color
+            }
+            return true;
+        }
+
+
 
         // Save Grade Form Submission
         $(document).on('submit', '#save_grade', function (e) {
             e.preventDefault();
 
                 // Call validateInput function to check the input
-        if (!validateInput()) {
+        if (!validateWritten()) {
             return; // Stop form submission if validation fails
         }
+        if (!validateQuarterGrade()) {
+            return; // Stop form submission if validation fails
+        }
+        if (!validateTP()) {
+            return; // Stop form submission if validation fails
+        }
+        if (!validateQA()) {
+            return; // Stop form submission if validation fails
+        }
+
 
             var formData = new FormData(this);
             formData.append("save_grade", true);
@@ -489,6 +710,7 @@ function openGradeAddModal(studentId) {
 
         // Edit Grade Button Click
         $(document).on('click', '.edit_grade', function () {
+
             var grade_Id = $(this).val();
             $.ajax({
                 type: "GET",

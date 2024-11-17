@@ -98,7 +98,7 @@
       </svg>
       </a>
       <div class="dropdown-container">      
-         <a href="index.php?page=GradeLevel" class="nav-item nav-gradelevel"><span class='icon-field'><i class="fas fa-server"></i></span> Grade Level</a>       
+         <!-- <a href="index.php?page=GradeLevel" class="nav-item nav-gradelevel"><span class='icon-field'><i class="fas fa-server"></i></span> Grade Level</a>        -->
          <a href="index.php?page=Subjects" class="nav-item nav-subjects"><span class='icon-field'><i class="fas fa-book-open"></i></span> Subject</a>        
         <a href="index.php?page=Class" class="nav-item nav-class"><span class='icon-field'><i class="fas fa-table"></i></span> Class</a>        
         <a href="index.php?page=Class_Subject" class="nav-item nav-class_subject"><span class='icon-field'><i class="fas fa-scroll"></i></i></span> Class Schedule</a>        
@@ -112,7 +112,7 @@
         </li>
         <?php } ?>
         
-        <?php if(($_SESSION['login_access'] == 2)  ){ ?>
+        <?php if(($_SESSION['login_access'] == 2) || ($_SESSION['login_access'] == 3 )){ ?>
           <li>
           <a href="index.php?page=grades" class="nav-item nav-grades"><span class='icon-field'><i class="fas fa-calendar"></i></i></span>Grades</a>
           <?php } ?> 
@@ -185,6 +185,14 @@
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+
+    <script>// Reset form fields when the modal is closed
+$('#userEditModal').on('hidden.bs.modal', function () {
+    $('#ownupdate_user')[0].reset(); // Reset the form fields
+    $('#errorMessageUpdate').addClass('d-none'); // Hide any error messages
+});
+</script>
+    
 <script>
   $('#manage_my_account').click(function() {
 
@@ -230,8 +238,11 @@ $.ajax({
             alertify.success(res.message);
             
             $('#userEditModal').modal('hide');
-            $('#userEditModal')[0].reset();
-
+             // Reset form fields
+                $('#password').val('');
+                $('#password1').val('');
+                $('#password2').val('');
+                $('#ownupdate_user')[0].reset();
             setTimeout(function(){
 						location.reload()
 					},500)
@@ -296,7 +307,6 @@ width: 25%;
 
 .active {
   color: white;
-
 }
 
 .dropdown-container {

@@ -222,7 +222,7 @@ td{
     
 	</style>
 
-<script>
+<!-- <script>
         // Function to fetch grades based on both filters
         function fetchFaculty() {
                 $.ajax({
@@ -242,6 +242,43 @@ td{
         $(document).ready(function() {
             fetchFaculty(); // Automatically fetch data when the page loads
     });
+</script> -->
+
+<script>
+
+fetchFaculty();
+    
+    // Initialize the DataTable after the data is loaded
+    var table;
+    
+    function fetchFaculty() {
+        $.ajax({
+            url: 'fetch_faculty.php', // Your PHP script to fetch data
+            type: 'POST',
+            data: { fetch: 'fetch' },
+            success: function (response) {
+                // Populate table body with new data
+                $('#myTable tbody').html(response);
+
+                // Initialize DataTable only once (if it's not already initialized)
+                if (!$.fn.DataTable.isDataTable('#myTable')) {
+                    table = $('#myTable').DataTable({
+                        responsive: true,
+                        paging: true,
+                        searching: true,
+                        ordering: true,
+                        "order": [[2, "asc"]],  // Sort by "Class" column (index 2)
+                    });
+                } else {
+                    // If the table already exists, just redraw it
+                    table.clear().rows.add($('#myTable').DataTable().rows().data()).draw();
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching data:', error);
+            },
+        });
+    }
 </script>
 <script>
 

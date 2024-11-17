@@ -30,7 +30,7 @@
                     <select name="gradelevel_id" id="gradelevel_id" class="custom-select">
                     <option value="">select grade level</option>
                                 <?php 
-                                $gradelevel = $connection->query("SELECT * FROM gradelevel order by Gradelevel asc");
+                                $gradelevel = $connection->query("SELECT * FROM gradelevel order by Id asc");
                                 while($row=$gradelevel->fetch_assoc()):
                                 ?>
                                 <option value="<?php echo $row['Id'] ?>"><?php echo $row['Gradelevel'] ?></option>
