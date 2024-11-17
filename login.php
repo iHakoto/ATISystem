@@ -97,7 +97,7 @@ ob_end_flush();
         width: 100%;
         padding: 12px;
         font-size: 18px;
-        background-color: #6A0000;
+        background-color: #800000;
         border: none;
         color: white;
         border-radius: 8px;
@@ -109,7 +109,7 @@ ob_end_flush();
 
     /* Button hover effect */
     .login-btn:hover {
-        background-color: #800000; /* Maroon color when hovered */
+        background-color: #6A0000; /* Maroon color when hovered */
         transform: translateY(-3px); /* Slight lift effect */
     }
 
@@ -124,13 +124,13 @@ ob_end_flush();
     }
 
     .forgot-password a {
-        color: #FF7A00;
+        color: #800000;
         font-weight: bold;
         text-decoration: none;
     }
 
     .forgot-password a:hover {
-        color: #FF5722;
+        color: #6A0000;
     }
 
     /* Animation for fade-in */
