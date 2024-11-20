@@ -48,7 +48,7 @@ ob_end_flush();
     .login-image {
         flex: 1;
         height: 350px; /* Make the image take the full height of the container */
-        width: 350px; /* Set a fixed width to make it a square */
+        max-width: 450px; /* Set a fixed width to make it a square */
         background: url('../images/alta.jpg') no-repeat center center;
         background-size: cover;
         border-radius: 12px 0 0 12px;  /* Rounded corners for left side */
