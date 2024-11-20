@@ -44,11 +44,13 @@ ob_end_flush();
         height: 100%;
     }
 
+    /* Image container: Set it to be square and fill the height */
     .login-image {
         flex: 1;
+        height: 100%; /* Make the image take the full height of the container */
+        width: 350px; /* Set a fixed width to make it a square */
         background: url('../images/alta.jpg') no-repeat center center;
         background-size: cover;
-        height: 100%;
         border-radius: 12px 0 0 12px;  /* Rounded corners for left side */
     }
 
@@ -170,6 +172,7 @@ ob_end_flush();
 
         .login-image {
             height: 250px; /* Smaller image on mobile */
+            width: 100%;
             border-radius: 12px;
         }
 
