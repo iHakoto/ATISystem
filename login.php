@@ -46,7 +46,7 @@ ob_end_flush();
 
     .login-image {
         flex: 1;
-        background: url('..\images\alta.jpg') no-repeat center center;
+        background: url('../images/alta.jpg') no-repeat center center;
         background-size: cover;
         height: 100%;
         border-radius: 12px 0 0 12px;  /* Rounded corners for left side */
