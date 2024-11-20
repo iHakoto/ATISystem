@@ -252,33 +252,34 @@ fetchFaculty();
     var table;
     
     function fetchFaculty() {
-        $.ajax({
-            url: 'fetch_faculty.php', // Your PHP script to fetch data
-            type: 'POST',
-            data: { fetch: 'fetch' },
-            success: function (response) {
-                // Populate table body with new data
-                $('#myTable tbody').html(response);
+    $.ajax({
+        url: 'fetch_faculty.php', // Your PHP script to fetch data
+        type: 'POST',
+        data: { fetch: 'fetch' },
+        success: function (response) {
+            // If DataTable is already initialized, destroy it and reinitialize with new data
+            if ($.fn.DataTable.isDataTable('#myTable')) {
+                $('#myTable').DataTable().destroy(); // Destroy the existing DataTable instance
+            }
+            
+            // Update the table body with new data
+            $('#myTable tbody').html(response);
 
-                // Initialize DataTable only once (if it's not already initialized)
-                if (!$.fn.DataTable.isDataTable('#myTable')) {
-                    table = $('#myTable').DataTable({
-                        responsive: true,
-                        paging: true,
-                        searching: true,
-                        ordering: true,
-                        "order": [[2, "asc"]],  // Sort by "Class" column (index 2)
-                    });
-                } else {
-                    // If the table already exists, just redraw it
-                    table.clear().rows.add($('#myTable').DataTable().rows().data()).draw();
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error('Error fetching data:', error);
-            },
-        });
-    }
+            // Reinitialize DataTable
+            table = $('#myTable').DataTable({
+                responsive: true,
+                paging: true,
+                searching: true,
+                ordering: true,
+                "order": [[2, "asc"]],  // Sort by "Class" column (index 2)
+            });
+        },
+        error: function (xhr, status, error) {
+            console.error('Error fetching data:', error);
+        },
+    });
+}
+
 </script>
 <script>
 
@@ -400,9 +401,7 @@ $.ajax({
             $('#facultyEditModal').modal('hide');
             $('#updateFaculty')[0].reset();
 
-            setTimeout(function() {
-                                fetchFaculty();
-                            }, 500);
+            fetchFaculty();
 
         }else if(res.status == 500) {
             alert(res.message);
@@ -433,9 +432,7 @@ $(document).on('submit', '#delete_Faculty', function (e) {
                         }else{
                             alertify.set('notifier','position', 'top-right');
                             alertify.success(res.message);
-                            setTimeout(function() {
-                                fetchFaculty();
-                            }, 500);
+                            fetchFaculty();
                         }
                     }
                 });

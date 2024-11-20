@@ -272,7 +272,6 @@ td{
 
 
 <script>
-$(document).ready(function () {
     // Initialize the table only once
     fetchStudents();
     
@@ -280,33 +279,34 @@ $(document).ready(function () {
     var table;
     
     function fetchStudents() {
-        $.ajax({
-            url: 'fetch_students.php', // Your PHP script to fetch data
-            type: 'POST',
-            data: { fetch: 'fetch' },
-            success: function (response) {
-                // Populate table body with new data
-                $('#myTable tbody').html(response);
+    $.ajax({
+        url: 'fetch_students.php', // Your PHP script to fetch data
+        type: 'POST',
+        data: { fetch: 'fetch' },
+        success: function (response) {
+            // If DataTable is already initialized, destroy it and reinitialize with new data
+            if ($.fn.DataTable.isDataTable('#myTable')) {
+                $('#myTable').DataTable().destroy(); // Destroy the existing DataTable instance
+            }
+            
+            // Update the table body with new data
+            $('#myTable tbody').html(response);
 
-                // Initialize DataTable only once (if it's not already initialized)
-                if (!$.fn.DataTable.isDataTable('#myTable')) {
-                    table = $('#myTable').DataTable({
-                        responsive: true,
-                        paging: true,
-                        searching: true,
-                        ordering: true,
-                        "order": [[4, "asc"]],  // Sort by "Class" column (index 4)
-                    });
-                } else {
-                    // If the table already exists, just redraw it
-                    table.clear().rows.add($('#myTable').DataTable().rows().data()).draw();
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error('Error fetching data:', error);
-            },
-        });
-    }
+            // Reinitialize DataTable
+            table = $('#myTable').DataTable({
+                responsive: true,
+                paging: true,
+                searching: true,
+                ordering: true,
+                "order": [[4, "asc"]],  // Sort by "Class" column (index 4)
+            });
+        },
+        error: function (xhr, status, error) {
+            console.error('Error fetching data:', error);
+        },
+    });
+}
+
 
     // Listen for changes in the filter dropdown
     $('#classfilter').on('change', function () {
@@ -320,8 +320,6 @@ $(document).ready(function () {
             table.column(4).search(selectedClass).draw();
         }
     });
-});
-
 </script>
 
 
@@ -436,9 +434,7 @@ $.ajax({
             alertify.success(res.message); 
             $('#studentEditModal').modal('hide');
             $('#updateStudent')[0].reset();
-            setTimeout(function() {
-                                fetchStudents();
-                            }, 500);
+            fetchStudents();
         }else if(res.status == 500) {
             alert(res.message);
         }
@@ -468,10 +464,7 @@ $(document).on('submit', '#delete_Stud', function (e) {
                         }else{
                             alertify.set('notifier','position', 'top-right');
                             alertify.success(res.message);
-                            setTimeout(function() {
-                                fetchStudents();
-                            }, 500);
-
+                            fetchStudents();
                         }
                     }
                 });
