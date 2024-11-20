@@ -32,14 +32,32 @@ ob_end_flush();
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: #f4f4f4;
+    }
+
+    .login-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 900px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .login-image {
+        flex: 1;
+        background: url('path/to/your/image.jpg') no-repeat center center;
+        background-size: cover;
+        height: 100%;
+        border-radius: 12px 0 0 12px;  /* Rounded corners for left side */
     }
 
     .login-container {
+        flex: 1;
         background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-        border-radius: 12px;
+        border-radius: 0 12px 12px 0; /* Rounded corners for right side */
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         padding: 40px;
-        width: 100%;
         max-width: 400px;
         animation: fadeIn 1s ease-out;
     }
@@ -146,37 +164,49 @@ ob_end_flush();
 
     /* Media Query for responsiveness */
     @media screen and (max-width: 768px) {
+        .login-wrapper {
+            flex-direction: column;
+        }
+
+        .login-image {
+            height: 250px; /* Smaller image on mobile */
+            border-radius: 12px;
+        }
+
         .login-container {
-            padding: 30px;
-            width: 80%;
+            padding: 20px;
+            max-width: 100%;
         }
     }
 </style>
 
 <body>
-    <div class="login-container">
-        <h2>Welcome to <?php echo $_SESSION['system']['name']; ?></h2>
-        <form id="login-form" action="" method="post">
-            <div class="form-element">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" autocomplete="off" placeholder="Enter Username" required>
-            </div>
+    <div class="login-wrapper">
+        <div class="login-image"></div> <!-- Image on left -->
+        <div class="login-container">
+            <h2>Welcome to <?php echo $_SESSION['system']['name']; ?></h2>
+            <form id="login-form" action="" method="post">
+                <div class="form-element">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" autocomplete="off" placeholder="Enter Username" required>
+                </div>
 
-            <div class="form-element">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Enter Password" required>
-            </div>
+                <div class="form-element">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter Password" required>
+                </div>
 
-            <div class="show-password">
-                <input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password
-            </div>
+                <div class="show-password">
+                    <input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password
+                </div>
 
-            <button type="submit" name="login" class="login-btn">Login</button>
+                <button type="submit" name="login" class="login-btn">Login</button>
 
-            <div class="forgot-password">
-                <a href="forgotPassword.php">Forgot password?</a>
-            </div>
-        </form>
+                <div class="forgot-password">
+                    <a href="forgotPassword.php">Forgot password?</a>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script>
