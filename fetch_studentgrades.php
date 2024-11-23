@@ -21,10 +21,6 @@ if (isset($_POST['id'])) {
                 MAX(CASE WHEN g.quarter_id = 2 THEN g.Id END) AS Q2_Grade_Id,
                 MAX(CASE WHEN g.quarter_id = 3 THEN g.Id END) AS Q3_Grade_Id,
                 MAX(CASE WHEN g.quarter_id = 4 THEN g.Id END) AS Q4_Grade_Id,
-                MAX(CASE WHEN g.quarter_id = 1 THEN g.comment END) AS Q1_Comment,
-                MAX(CASE WHEN g.quarter_id = 2 THEN g.comment END) AS Q2_Comment,
-                MAX(CASE WHEN g.quarter_id = 3 THEN g.comment END) AS Q3_Comment,
-                MAX(CASE WHEN g.quarter_id = 4 THEN g.comment END) AS Q4_Comment,
                 CASE 
                     WHEN COUNT(DISTINCT g.quarter_id) = 4 THEN 
                         ROUND(
@@ -58,10 +54,6 @@ if (isset($_POST['id'])) {
                     MAX(CASE WHEN g.quarter_id = 2 THEN g.Id END) AS Q2_Grade_Id,
                     MAX(CASE WHEN g.quarter_id = 3 THEN g.Id END) AS Q3_Grade_Id,
                     MAX(CASE WHEN g.quarter_id = 4 THEN g.Id END) AS Q4_Grade_Id,
-                    MAX(CASE WHEN g.quarter_id = 1 THEN g.comment END) AS Q1_Comment,
-                    MAX(CASE WHEN g.quarter_id = 2 THEN g.comment END) AS Q2_Comment,
-                    MAX(CASE WHEN g.quarter_id = 3 THEN g.comment END) AS Q3_Comment,
-                    MAX(CASE WHEN g.quarter_id = 4 THEN g.comment END) AS Q4_Comment,
                     CASE 
                         WHEN COUNT(DISTINCT g.quarter_id) = 4 THEN 
                             ROUND(
