@@ -34,7 +34,7 @@
                     </div>
                     <div class="row">
 
-        <label for="written_total">Written work</label>
+        <label for="written_total">Written work</label> <br><br>
     <div class="col">
         <label for="ww_score1">ww 1</label>
         <input type="number" name="ww_score1" id="ww_score1" class="form-control score-input" min="0" />
@@ -57,6 +57,7 @@
     </div>
 </div>
 
+    <br><br>
     <div class="mb-3">
         <input type="number" name="written_total" id="written_total" class="form-control" min="0" step="0.01" readonly />
     </div>
