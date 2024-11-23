@@ -55,39 +55,41 @@
     </div>
 </div>
 
-                <div class="mb-3">
-                    <label for="written_total">Written works</label>
-                    <input type="number" name="written_total" id="written_total" class="form-control" min="0" step="0.01" readonly />
-                </div>
+    <br><br><br><br>
 
-                <div class="row mb-3">
-                    <div class="col">
-                        <label for="score1">pt 1</label>
-                        <input type="number" name="pt_score1" id="pt_score1" class="form-control pt-score-input" min="0" />
-                    </div>
-                    <div class="col">
-                        <label for="score2">pt 2</label>
-                        <input type="number" name="pt_score2" id="pt_score2" class="form-control pt-score-input" min="0" />
-                    </div>
-                    <div class="col">
-                        <label for="score3">pt 3</label>
-                        <input type="number" name="pt_score3" id="pt_score3" class="form-control pt-score-input" min="0" />
-                    </div>
-                    <div class="col">
-                        <label for="score4">pt 4</label>
-                        <input type="number" name="pt_score4" id="pt_score4" class="form-control pt-score-input" min="0" />
-                    </div>
-                    <div class="col">
-                        <label for="score5">pt 5</label>
-                        <input type="number" name="pt_score5" id="pt_score5" class="form-control pt-score-input" min="0" />
-                    </div>
-                </div>
+    <div class="mb-3">
+        <label for="written_total">Written work</label>
+        <input type="number" name="written_total" id="written_total" class="form-control" min="0" step="0.01" readonly />
+    </div>
 
-                    <div class="mb-3">
-                        <label for="performance_task">Performance task</label>
-                        <input type="number" name="performance_task" id="performance_task" class="form-control" min="0" step="0.01" readonly />
-                    </div>
-                    <div class="row mb-3">
+    <div class="row mb-3">
+        <div class="col">
+            <label for="score1">pt 1</label>
+            <input type="number" name="pt_score1" id="pt_score1" class="form-control pt-score-input" min="0" />
+        </div>
+        <div class="col">
+            <label for="score2">pt 2</label>
+            <input type="number" name="pt_score2" id="pt_score2" class="form-control pt-score-input" min="0" />
+        </div>
+        <div class="col">
+            <label for="score3">pt 3</label>
+            <input type="number" name="pt_score3" id="pt_score3" class="form-control pt-score-input" min="0" />
+        </div>
+        <div class="col">
+            <label for="score4">pt 4</label>
+            <input type="number" name="pt_score4" id="pt_score4" class="form-control pt-score-input" min="0" />
+        </div>
+        <div class="col">
+            <label for="score5">pt 5</label>
+            <input type="number" name="pt_score5" id="pt_score5" class="form-control pt-score-input" min="0" />
+        </div>
+    </div>
+
+        <div class="mb-3">
+            <label for="performance_task">Performance task</label>
+            <input type="number" name="performance_task" id="performance_task" class="form-control" min="0" step="0.01" readonly />
+        </div>
+        <div class="row mb-3">
     <!-- Quarterly Assessment Section -->
     <div class="col">
         <label for="qa_score1">qa 1</label>
@@ -159,7 +161,7 @@
     </div>
 </div>
 <div class="mb-3">
-    <label for="ewritten_work">Written Works</label>
+    <label for="ewritten_work">Written Work</label>
     <input type="text" name="ewritten_work" id="ewritten_work" class="form-control" readonly/>
 </div>
 
