@@ -34,23 +34,23 @@
                     </div>
                     <div class="row">
     <div class="col">
-        <label for="ww_score1">Score 1</label>
+        <label for="ww_score1">ww 1</label>
         <input type="number" name="ww_score1" id="ww_score1" class="form-control score-input" min="0" />
     </div>
     <div class="col">
-        <label for="ww_score2">Score 2</label>
+        <label for="ww_score2">ww 2</label>
         <input type="number" name="ww_score2" id="ww_score2" class="form-control score-input" min="0" />
     </div>
     <div class="col">
-        <label for="ww_score3">Score 3</label>
+        <label for="ww_score3">ww 3</label>
         <input type="number" name="ww_score3" id="ww_score3" class="form-control score-input" min="0" />
     </div>
     <div class="col">
-        <label for="ww_score4">Score 4</label>
+        <label for="ww_score4">ww 4</label>
         <input type="number" name="ww_score4" id="ww_score4" class="form-control score-input" min="0" />
     </div>
     <div class="col">
-        <label for="ww_score5">Score 5</label>
+        <label for="ww_score5">ww 5</label>
         <input type="number" name="ww_score5" id="ww_score5" class="form-control score-input" min="0" />
     </div>
 </div>
@@ -62,23 +62,23 @@
 
                 <div class="row mb-3">
                     <div class="col">
-                        <label for="score1">Score 1</label>
+                        <label for="score1">pt 1</label>
                         <input type="number" name="pt_score1" id="pt_score1" class="form-control pt-score-input" min="0" />
                     </div>
                     <div class="col">
-                        <label for="score2">Score 2</label>
+                        <label for="score2">pt 2</label>
                         <input type="number" name="pt_score2" id="pt_score2" class="form-control pt-score-input" min="0" />
                     </div>
                     <div class="col">
-                        <label for="score3">Score 3</label>
+                        <label for="score3">pt 3</label>
                         <input type="number" name="pt_score3" id="pt_score3" class="form-control pt-score-input" min="0" />
                     </div>
                     <div class="col">
-                        <label for="score4">Score 4</label>
+                        <label for="score4">pt 4</label>
                         <input type="number" name="pt_score4" id="pt_score4" class="form-control pt-score-input" min="0" />
                     </div>
                     <div class="col">
-                        <label for="score5">Score 5</label>
+                        <label for="score5">pt 5</label>
                         <input type="number" name="pt_score5" id="pt_score5" class="form-control pt-score-input" min="0" />
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                     <div class="row mb-3">
     <!-- Quarterly Assessment Section -->
     <div class="col">
-        <label for="qa_score1">Score 1</label>
+        <label for="qa_score1">qa 1</label>
         <input type="number" name="qa_score1" id="qa_score1" class="form-control qa-score-input" min="0" />
     </div>
 </div>
@@ -138,23 +138,23 @@
                     <div class="row mb-3">
     <!-- Enhanced Written Works Section -->
     <div class="col">
-        <label for="eww_score1">Score 1</label>
+        <label for="eww_score1">ww 1</label>
         <input type="number" name="eww_score1" id="eww_score1" class="form-control eww-score-input" min="0" />
     </div>
     <div class="col">
-        <label for="eww_score2">Score 2</label>
+        <label for="eww_score2">ww 2</label>
         <input type="number" name="eww_score2" id="eww_score2" class="form-control eww-score-input" min="0" />
     </div>
     <div class="col">
-        <label for="eww_score3">Score 3</label>
+        <label for="eww_score3">ww 3</label>
         <input type="number" name="eww_score3" id="eww_score3" class="form-control eww-score-input" min="0" />
     </div>
     <div class="col">
-        <label for="eww_score4">Score 4</label>
+        <label for="eww_score4">ww 4</label>
         <input type="number" name="eww_score4" id="eww_score4" class="form-control eww-score-input" min="0" />
     </div>
     <div class="col">
-        <label for="eww_score5">Score 5</label>
+        <label for="eww_score5">ww 5</label>
         <input type="number" name="eww_score5" id="eww_score5" class="form-control eww-score-input" min="0" />
     </div>
 </div>
@@ -166,23 +166,23 @@
 <div class="row mb-3">
     <!-- Enhanced Performance Task Section -->
     <div class="col">
-        <label for="ept_score1">Score 1</label>
+        <label for="ept_score1">pt 1</label>
         <input type="number" name="ept_score1" id="ept_score1" class="form-control ept-score-input" min="0" />
     </div>
     <div class="col">
-        <label for="ept_score2">Score 2</label>
+        <label for="ept_score2">pt 2</label>
         <input type="number" name="ept_score2" id="ept_score2" class="form-control ept-score-input" min="0" />
     </div>
     <div class="col">
-        <label for="ept_score3">Score 3</label>
+        <label for="ept_score3">pt 3</label>
         <input type="number" name="ept_score3" id="ept_score3" class="form-control ept-score-input" min="0" />
     </div>
     <div class="col">
-        <label for="ept_score4">Score 4</label>
+        <label for="ept_score4">pt 4</label>
         <input type="number" name="ept_score4" id="ept_score4" class="form-control ept-score-input" min="0" />
     </div>
     <div class="col">
-        <label for="ept_score5">Score 5</label>
+        <label for="ept_score5">pt 5</label>
         <input type="number" name="ept_score5" id="ept_score5" class="form-control ept-score-input" min="0" />
     </div>
 </div>
@@ -194,7 +194,7 @@
 <div class="row mb-3">
     <!-- Enhanced Quarterly Assessment Section -->
     <div class="col">
-        <label for="eqa_score1">Score 1</label>
+        <label for="eqa_score1">qa 1</label>
         <input type="number" name="eqa_score1" id="eqa_score1" class="form-control eqa-score-input" min="0" />
     </div>
 </div>
