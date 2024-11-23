@@ -35,10 +35,10 @@
                                 $class = $connection->query("WITH RankedClasses AS (
                                 SELECT 
                                     c.*, 
-                                    CONCAT(glevel.Gradelevel) AS `class`, 
+                                    CONCAT(glevel.Gradelevel, '-', c.Section, '-', s.Subject) AS `class`, 
                                     cs.Id AS class_id,
                                     ROW_NUMBER() OVER (
-                                        PARTITION BY CONCAT(glevel.Gradelevel)
+                                        PARTITION BY CONCAT(glevel.Gradelevel, '-', c.Section, '-', s.Subject)
                                         ORDER BY c.added_at DESC
                                     ) AS row_num
                                 FROM 
