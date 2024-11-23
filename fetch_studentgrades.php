@@ -49,7 +49,6 @@ if (isset($_POST['id'])) {
         LEFT JOIN grades g ON cs.Id = g.class_subject_id AND g.student_id = s.Id
         WHERE s.Id = ? AND cs.Id = ?
         GROUP BY s.Id;
-        ORDER BY sub.Subject;
         ");
         $stmt->bind_param("ii", $student_id, $classId);
     } 
