@@ -49,7 +49,7 @@ if (isset($_POST['id'])) {
         LEFT JOIN grades g ON cs.Id = g.class_subject_id AND g.student_id = s.Id
         WHERE s.Id = ? AND cs.Id = ?
         GROUP BY s.Id
-        ORDER BY sub.Subject ASC;  -- Sort by subject name alphabetically
+        ORDER BY s.Subject ASC;  -- Sort by subject name alphabetically
         ");
         $stmt->bind_param("ii", $student_id, $classId);
     } 
@@ -117,7 +117,7 @@ if (isset($_POST['id'])) {
         WHERE 
             row_num = 1
         ORDER BY 
-            Fullname ASC, sub.Subject ASC;  -- Sort by subject name and Fullname alphabetically
+            Fullname ASC, s.Subject ASC;  -- Sort by subject name and Fullname alphabetically
         ");
         $stmt->bind_param("i", $student_id); 
     }
