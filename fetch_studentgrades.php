@@ -48,11 +48,12 @@ if (isset($_POST['id'])) {
         LEFT JOIN subjects sub ON sub.Id = cs.subject_id  
         LEFT JOIN grades g ON cs.Id = g.class_subject_id AND g.student_id = s.Id
         WHERE s.Id = ? AND cs.Id = ?
-        GROUP BY s.Id;
+        GROUP BY s.Id
+        ORDER BY sub.Id ASC;  -- Order subjects by their Id, instead of Subject
         ");
         $stmt->bind_param("ii", $student_id, $classId);
-    } 
-    
+    }
+
     if ($classId === "All") {
         $stmt = $connection->prepare("
         WITH RankedClasses AS (
@@ -89,9 +90,9 @@ if (isset($_POST['id'])) {
                     ELSE NULL
                 END AS Average_Grade,
                ROW_NUMBER() OVER (
-            PARTITION BY CONCAT(glevel.Gradelevel, '-', c.Section, '-', sub.Subject)
-            ORDER BY s.Added_at DESC, cs.Id ASC
-        ) AS row_num
+                    PARTITION BY CONCAT(glevel.Gradelevel, '-', c.Section, '-', sub.Subject)
+                    ORDER BY s.Added_at DESC, cs.Id ASC
+                ) AS row_num
             FROM 
                 students s 
             LEFT JOIN 
@@ -116,7 +117,7 @@ if (isset($_POST['id'])) {
         WHERE 
             row_num = 1
         ORDER BY 
-            Fullname ASC;
+            Fullname ASC, sub.Id ASC;  -- Order subjects by their Id, instead of Subject
         ");
         $stmt->bind_param("i", $student_id); 
     }
