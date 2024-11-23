@@ -441,7 +441,7 @@ if($_FILES['stud_image']['name'] != ''){
                     if($_FILES['stud_image']['name'] !=''){
                         move_uploaded_file($_FILES["stud_image"]["tmp_name"], "../assets/Student_img/".$_FILES["stud_image"]["name"]);
                        if($old_image !=''){
-                        unlink("Student_img/".$old_image);
+                        unlink("../assets/Student_img/".$old_image);
                        }
                     }
                     $res = [
@@ -553,7 +553,7 @@ $query = "UPDATE students SET Firstname ='$firstname', Middlename ='$middlename'
              {
             if($_FILES['stud_image']['name'] !=''){
                 move_uploaded_file($_FILES["stud_image"]["tmp_name"], "../assets/Student_img/".$_FILES["stud_image"]["name"]);
-                unlink("Student_img/".$old_image);
+                unlink("../assets/Student_img/".$old_image);
             }
             $res = [
                 'status' => 201,
