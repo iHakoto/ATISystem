@@ -170,7 +170,7 @@ return;
           $sql = "INSERT INTO `users`(  `username`, `password`,`password_text` ,`access`,Student_Id,stud_class_id) VALUES ('$email','$password','$password_text','1','$id','$class')";
           $query_run = mysqli_query($connection, $sql);
           }
-        move_uploaded_file($_FILES["stud_image"]["tmp_name"], "Student_img/".$_FILES["stud_image"]["name"]);
+        move_uploaded_file($_FILES["stud_image"]["tmp_name"], "../assets/Student_img/".$_FILES["stud_image"]["name"]);
         $res = [
             'status' => 200,
             'message' => 'Student Created Successfully'
@@ -439,7 +439,7 @@ if($_FILES['stud_image']['name'] != ''){
                     if($query_run1)
                     {
                     if($_FILES['stud_image']['name'] !=''){
-                        move_uploaded_file($_FILES["stud_image"]["tmp_name"], "Student_img/".$_FILES["stud_image"]["name"]);
+                        move_uploaded_file($_FILES["stud_image"]["tmp_name"], "../assets/Student_img/".$_FILES["stud_image"]["name"]);
                        if($old_image !=''){
                         unlink("Student_img/".$old_image);
                        }
@@ -552,7 +552,7 @@ $query = "UPDATE students SET Firstname ='$firstname', Middlename ='$middlename'
              if($query_run1)
              {
             if($_FILES['stud_image']['name'] !=''){
-                move_uploaded_file($_FILES["stud_image"]["tmp_name"], "Student_img/".$_FILES["stud_image"]["name"]);
+                move_uploaded_file($_FILES["stud_image"]["tmp_name"], "../assets/Student_img/".$_FILES["stud_image"]["name"]);
                 unlink("Student_img/".$old_image);
             }
             $res = [
@@ -804,7 +804,7 @@ if(isset($_POST['save_faculty'])){
                     }
            
             //
-            move_uploaded_file($_FILES["faculty_img"]["tmp_name"], "Faculty_img/".$_FILES["faculty_img"]["name"]);
+            move_uploaded_file($_FILES["faculty_img"]["tmp_name"], "../assets/Faculty_img/".$_FILES["faculty_img"]["name"]);
             $res = [
                 'status' => 199,
                 'message' => 'Faculty Created Successfully'
