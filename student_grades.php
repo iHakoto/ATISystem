@@ -79,6 +79,7 @@ $class_id = $_SESSION['login_stud_class_id'];
                                     <tr>
                                         <th class="text-center">#</th>
                                         <th class="text-center">Subject</th>
+                                        <th class="text-center">XTRA1</th>
                                         <th class="text-center" >First Quarter Grade</th>
                                         <th class="text-center" >Second Quarter Grade</th>
                                         <th class="text-center" >Third Quarter Grade</th>
