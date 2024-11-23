@@ -142,5 +142,4 @@ if (isset($_POST['id'])) {
     }
 
     echo $output; // Return the HTML to the AJAX call
-}
 ?>
