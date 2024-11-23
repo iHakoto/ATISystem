@@ -34,13 +34,7 @@
                                 //  $faculty_id = $_SESSION['login_Faculty_Id']; 
                                 $class = $connection->query("WITH RankedClasses AS (
                                 SELECT 
-                                    c.*, 
-                                    CONCAT(glevel.Gradelevel, '-', c.Section, '-', s.Subject) AS `class`, 
-                                    cs.Id AS class_id,
-                                    ROW_NUMBER() OVER (
-                                        PARTITION BY CONCAT(glevel.Gradelevel, '-', c.Section, '-', s.Subject)
-                                        ORDER BY c.added_at DESC
-                                    ) AS row_num
+                                    c.*
                                 FROM 
                                     `class` c
                                 INNER JOIN 
