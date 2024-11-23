@@ -143,7 +143,7 @@ if(!empty($middlename) && !preg_match("/^[a-zA-Z\s]+$/", $middlename)) {
         echo json_encode($res);
         return;
     }else{ 
-if(file_exists("Student_img/" . $_FILES['stud_image']['name'])){
+if(file_exists("../assets/Student_img/" . $_FILES['stud_image']['name'])){
 $filename = $_FILES['stud_image']['name'];
 $res = [
     'status' => 300,
