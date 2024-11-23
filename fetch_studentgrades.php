@@ -16,8 +16,7 @@ if (isset($_POST['id'])) {
                 s.Student_img, 
                 s.class_id, 
                 s.phonenumber, 
-                s.Added_at,
-                CONCAT(glevel.Gradelevel, '-', c.Section, '-', sub.Subject) AS `class`, 
+                s.Added_at, 
                 cs.Id AS ID,
                 MAX(CASE WHEN g.quarter_id = 1 THEN g.quarterly_grade END) AS Q1_Grade, 
                 MAX(CASE WHEN g.quarter_id = 2 THEN g.quarterly_grade END) AS Q2_Grade, 
@@ -43,7 +42,6 @@ if (isset($_POST['id'])) {
                 END AS Average_Grade
             FROM students s 
             LEFT JOIN class c ON s.class_id = c.Id 
-            INNER JOIN gradelevel glevel ON glevel.Id = c.Gradelevel_Id
             LEFT JOIN class_subjects cs ON c.Id = cs.class_id 
             LEFT JOIN subjects sub ON sub.Id = cs.subject_id  
             LEFT JOIN grades g ON cs.Id = g.class_subject_id AND g.student_id = s.Id
@@ -63,7 +61,6 @@ if (isset($_POST['id'])) {
                     s.class_id, 
                     s.phonenumber, 
                     s.Added_at,
-                    CONCAT(glevel.Gradelevel, '-', c.Section, '-', sub.Subject) AS `class`, 
                     cs.Id AS class_id1,
                     MAX(CASE WHEN g.quarter_id = 1 THEN g.quarterly_grade END) AS Q1_Grade, 
                     MAX(CASE WHEN g.quarter_id = 2 THEN g.quarterly_grade END) AS Q2_Grade, 
@@ -88,15 +85,13 @@ if (isset($_POST['id'])) {
                         ELSE NULL
                     END AS Average_Grade,
                     ROW_NUMBER() OVER (
-                        PARTITION BY CONCAT(glevel.Gradelevel, '-', c.Section, '-', sub.Subject)
-                        ORDER BY s.Added_at DESC, cs.Id ASC
+                        PARTITION BY cs.Id
+                        ORDER BY s.Added_at DESC
                     ) AS row_num
                 FROM 
                     students s 
                 LEFT JOIN 
                     class c ON s.class_id = c.Id 
-                INNER JOIN 
-                    gradelevel glevel ON glevel.Id = c.Gradelevel_Id
                 LEFT JOIN 
                     class_subjects cs ON c.Id = cs.class_id 
                 LEFT JOIN 
@@ -106,7 +101,7 @@ if (isset($_POST['id'])) {
                 WHERE 
                     s.Id = ? 
                 GROUP BY 
-                    s.Id, cs.Id, s.class_id, s.Email, s.Student_img, s.phonenumber, s.Added_at, glevel.Gradelevel, c.Section, sub.Subject
+                    s.Id, cs.Id, s.class_id, s.Email, s.Student_img, s.phonenumber, s.Added_at
             )
             SELECT 
                 *
@@ -136,7 +131,7 @@ if (isset($_POST['id'])) {
         $output .= '<tr>
                         <td class="text-center">' . $i++ . '</td> 
                         <td class="text-center">
-                            <b><p>' . $row['class'] . '</p></b>
+                            <b><p>' . $row['Email'] . '</p></b>
                         </td>
                         <td class="text-center" id="quarter2">
                             <a href="#" class="transaction-link" data-toggle="modal" data-target="#transactionModal" data-transaction-id="' . $row['Q1_Grade_Id'] . '">
