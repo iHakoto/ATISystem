@@ -1,8 +1,8 @@
 <?php
- include 'auth.php';
- include 'database/db_connect.php';
- $student_id = $_SESSION['login_Student_Id']; 
- $class_id = $_SESSION['login_stud_class_id']; 
+include 'auth.php';
+include 'database/db_connect.php';
+$student_id = $_SESSION['login_Student_Id']; 
+$class_id = $_SESSION['login_stud_class_id']; 
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
                             <option value="">Select option</option>
                             <option value="All">All</option>
                                 <?php  
-                                //  $faculty_id = $_SESSION['login_Faculty_Id']; 
+                                // Fetch available classes and subjects
                                 $class = $connection->query("WITH RankedClasses AS (
                                 SELECT 
                                     c.*, 
@@ -67,8 +67,7 @@
                             ORDER BY 
                                 `class` ASC;
                             ");
-                                while($row=$class->fetch_assoc()):                           
-                                ?>         
+                                while($row=$class->fetch_assoc()):                            ?>         
                                 <option value="<?php echo $row['class_id'] ?>"><?php echo $row['class'] ?></option>
                                 <?php endwhile; ?>               
                             </select>
@@ -93,27 +92,21 @@
                             </table>
                         </div>
                     </div>
-				</div>
-			</div>
-			<!-- Table Panel -->
-		</div>
-	</div>	
+                </div>
+            </div>
+        </div>    
+    </div>  
 </div>
 <div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="transactionModalLabel" aria-hidden="true">
-
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <!-- <div class="modal-header">
-            <h5 class="modal-title" id="transactionModalLabel">LOTUS</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div> -->
-<div class="modal-body">
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-</div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
@@ -123,7 +116,7 @@
         vertical-align: middle !important;
     }
     td p{
-        margin: unset
+        margin: unset;
     }
 </style>
 
@@ -153,40 +146,58 @@ var s_id = <?php echo json_encode($student_id); ?>; // Pass the PHP variable to 
 </script>
 
 <script>
-   
+$(document).ready(function() {
+    var selectedClass = null;
+    var selectedQuarter = null;
 
-    $(document).ready(function() {
-        
-        var selectedClass = null;
-        var selectedQuarter = null;
+    // Automatically fetch grades when the page loads
+    fetchGrades(); // Fetch all grades by default
 
-        // Event listener for class filter
-        $('#classfilter').change(function() {
-            selectedClass = $(this).val(); // Get selected class ID
-            $('#cs_id').val(selectedClass); // Set the value of the hidden input
-            fetchGrades(); // Call function to fetch grades based on both filters
-        });
-
-
-        // Function to fetch grades based on both filters
-        function fetchGrades() {
-            if (selectedClass) { // Ensure both filters are selected
-                $.ajax({
-                    url: 'fetch_studentgrades.php', // PHP file to fetch data
-                    type: 'POST',
-                    data: { 
-                        id: selectedClass,
-                        s_id: s_id // Assuming f_id is available globally
-                    },
-                    success: function(response) {
-                        $('#myTable tbody').html(response);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(error);
-                    }
-                });
-            }
-        }
-        setInterval(fetchGrades, 1000);
+    // Event listener for class filter
+    $('#classfilter').change(function() {
+        selectedClass = $(this).val(); // Get selected class ID
+        $('#cs_id').val(selectedClass); // Set the value of the hidden input
+        fetchGrades(); // Call function to fetch grades based on both filters
     });
+
+    // Function to fetch grades based on class selection or all grades by default
+    function fetchGrades() {
+        if (selectedClass === "All" || selectedClass === null) {
+            // Fetch all grades if "All" is selected or no class is selected
+            $.ajax({
+                url: 'fetch_studentgrades.php', // PHP file to fetch data
+                type: 'POST',
+                data: { 
+                    id: "All", // Fetch grades for all classes
+                    s_id: s_id // Assuming f_id is available globally
+                },
+                success: function(response) {
+                    $('#myTable tbody').html(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        } else if (selectedClass) {
+            // Fetch grades for the selected class
+            $.ajax({
+                url: 'fetch_studentgrades.php', // PHP file to fetch data
+                type: 'POST',
+                data: { 
+                    id: selectedClass,
+                    s_id: s_id // Assuming f_id is available globally
+                },
+                success: function(response) {
+                    $('#myTable tbody').html(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        }
+    }
+
+    // Periodically refresh the grades table (optional)
+    setInterval(fetchGrades, 1000);
+});
 </script>
