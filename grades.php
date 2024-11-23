@@ -33,10 +33,6 @@
                         <input type="hidden" name="quarter_id" id="quarter_id" class="form-control" />
                     </div>
                     <div class="row">
-        
-        <div class="mb-3">
-            <label for="written_total">Written work</label>
-        </div>
 
     <div class="col">
         <label for="ww_score1">ww 1</label>
@@ -61,6 +57,7 @@
 </div>
 
     <div class="mb-3">
+        <label for="written_total">Written work</label>
         <input type="number" name="written_total" id="written_total" class="form-control" min="0" step="0.01" readonly />
     </div>
 
