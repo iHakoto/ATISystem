@@ -61,7 +61,7 @@
         <input type="number" name="written_total" id="written_total" class="form-control" min="0" step="0.01" readonly />
     </div>
 
-    <br><br>
+    <br>
 
     <div class="row mb-3">
         <div class="col">
