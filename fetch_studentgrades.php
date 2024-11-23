@@ -48,8 +48,7 @@ if (isset($_POST['id'])) {
         LEFT JOIN subjects sub ON sub.Id = cs.subject_id  
         LEFT JOIN grades g ON cs.Id = g.class_subject_id AND g.student_id = s.Id
         WHERE s.Id = ? AND cs.Id = ?
-        GROUP BY s.Id
-        ORDER BY s.Subject ASC;  -- Sort by subject name alphabetically
+        GROUP BY s.Id;
         ");
         $stmt->bind_param("ii", $student_id, $classId);
     } 
@@ -89,10 +88,10 @@ if (isset($_POST['id'])) {
                         )
                     ELSE NULL
                 END AS Average_Grade,
-                ROW_NUMBER() OVER (
-                    PARTITION BY CONCAT(glevel.Gradelevel, '-', c.Section, '-', sub.Subject)
-                    ORDER BY s.Added_at DESC, cs.Id ASC
-                ) AS row_num
+               ROW_NUMBER() OVER (
+            PARTITION BY CONCAT(glevel.Gradelevel, '-', c.Section, '-', sub.Subject)
+            ORDER BY s.Added_at DESC, cs.Id ASC
+        ) AS row_num
             FROM 
                 students s 
             LEFT JOIN 
@@ -117,7 +116,7 @@ if (isset($_POST['id'])) {
         WHERE 
             row_num = 1
         ORDER BY 
-            Fullname ASC, s.Subject ASC;  -- Sort by subject name and Fullname alphabetically
+            Fullname ASC;
         ");
         $stmt->bind_param("i", $student_id); 
     }
@@ -161,17 +160,12 @@ if (isset($_POST['id'])) {
                                 <b><p>' . $row['Q4_Grade'] . '</p></b>
                             </a>
                         </td>
-                        <td class="text-center">
+                        <td class="text-center" id="quarter4">
                             <b><p>' . $row['Average_Grade'] . '</p></b>
                         </td>
                     </tr>';
     }
 
-    // Output the result
-    echo $output;
-
-    // Close the statement and connection
-    $stmt->close();
-    $connection->close();
+    echo $output; // Return the HTML to the AJAX call
 }
 ?>
