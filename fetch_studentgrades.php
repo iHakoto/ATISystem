@@ -18,7 +18,7 @@ if (isset($_POST['id'])) {
             s.class_id, 
             s.phonenumber, 
             s.Added_at,
-            CONCAT(glevel.Gradelevel, '-', c.Section, '-' ,sub.Subject) AS `class`, cs.Id AS ID,
+            CONCAT(sub.Subject) AS `class`, cs.Id AS ID,  -- Only the Subject
             MAX(CASE WHEN g.quarter_id = 1 THEN g.quarterly_grade END) AS Q1_Grade, 
             MAX(CASE WHEN g.quarter_id = 2 THEN g.quarterly_grade END) AS Q2_Grade, 
             MAX(CASE WHEN g.quarter_id = 3 THEN g.quarterly_grade END) AS Q3_Grade, 
@@ -64,7 +64,7 @@ if (isset($_POST['id'])) {
                 s.class_id, 
                 s.phonenumber, 
                 s.Added_at,
-                CONCAT(glevel.Gradelevel, '-', c.Section, '-', sub.Subject) AS `class`, 
+                CONCAT(sub.Subject) AS `class`, -- Only the Subject
                 cs.Id AS class_id1,
                 MAX(CASE WHEN g.quarter_id = 1 THEN g.quarterly_grade END) AS Q1_Grade, 
                 MAX(CASE WHEN g.quarter_id = 2 THEN g.quarterly_grade END) AS Q2_Grade, 
@@ -138,7 +138,7 @@ if (isset($_POST['id'])) {
         $output .= '<tr>
                         <td class="text-center">' . $i++ . '</td> 
                         <td class="text-center">
-                            <b><p>' . $row['Q1_Grade'] . '</p></b>
+                            <b><p>' . $row['class'] . '</p></b> <!-- Only Subject is shown here -->
                         </td>
                         <td class="text-center" id="quarter2">
                             <a href="#" class="transaction-link" data-toggle="modal" data-target="#transactionModal" data-transaction-id="' . $row['Q1_Grade_Id'] . '">
@@ -165,7 +165,7 @@ if (isset($_POST['id'])) {
                         </td>
                     </tr>';
     }
-    
+
     echo $output; // Return the HTML to the AJAX call
 }
 ?>
