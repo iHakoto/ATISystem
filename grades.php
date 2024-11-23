@@ -35,9 +35,8 @@
                     <div class="row">
         
         <div class="mb-3">
-        <label for="written_total">Written work</label>
-    </div>
-        <br><br><br>
+            <label for="written_total">Written work</label>
+        </div>
 
     <div class="col">
         <label for="ww_score1">ww 1</label>
