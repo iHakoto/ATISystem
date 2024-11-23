@@ -18,7 +18,7 @@ if (isset($_POST['id'])) {
             s.class_id, 
             s.phonenumber, 
             s.Added_at,
-            sub.Subject AS class, cs.Id AS ID,  -- Use sub.Subject directly for the class
+            CONCAT(sub.Subject) AS `class`, cs.Id AS ID,  -- Only the Subject
             MAX(CASE WHEN g.quarter_id = 1 THEN g.quarterly_grade END) AS Q1_Grade, 
             MAX(CASE WHEN g.quarter_id = 2 THEN g.quarterly_grade END) AS Q2_Grade, 
             MAX(CASE WHEN g.quarter_id = 3 THEN g.quarterly_grade END) AS Q3_Grade, 
@@ -48,12 +48,11 @@ if (isset($_POST['id'])) {
         LEFT JOIN subjects sub ON sub.Id = cs.subject_id  
         LEFT JOIN grades g ON cs.Id = g.class_subject_id AND g.student_id = s.Id
         WHERE s.Id = ? AND cs.Id = ?
-        GROUP BY s.Id
-        ORDER BY sub.Subject ASC;  -- Order subjects by Subject name
+        GROUP BY s.Id;
         ");
         $stmt->bind_param("ii", $student_id, $classId);
-    }
-
+    } 
+    
     if ($classId === "All") {
         $stmt = $connection->prepare("
         WITH RankedClasses AS (
@@ -65,7 +64,7 @@ if (isset($_POST['id'])) {
                 s.class_id, 
                 s.phonenumber, 
                 s.Added_at,
-                sub.Subject AS class, -- Use sub.Subject directly for the class
+                CONCAT(sub.Subject) AS `class`, -- Only the Subject
                 cs.Id AS class_id1,
                 MAX(CASE WHEN g.quarter_id = 1 THEN g.quarterly_grade END) AS Q1_Grade, 
                 MAX(CASE WHEN g.quarter_id = 2 THEN g.quarterly_grade END) AS Q2_Grade, 
@@ -90,9 +89,9 @@ if (isset($_POST['id'])) {
                     ELSE NULL
                 END AS Average_Grade,
                ROW_NUMBER() OVER (
-                    PARTITION BY CONCAT(glevel.Gradelevel, '-', c.Section, '-', sub.Subject)
-                    ORDER BY s.Added_at DESC, cs.Id ASC
-                ) AS row_num
+            PARTITION BY CONCAT(glevel.Gradelevel, '-', c.Section, '-', sub.Subject)
+            ORDER BY s.Added_at DESC, cs.Id ASC
+        ) AS row_num
             FROM 
                 students s 
             LEFT JOIN 
@@ -117,7 +116,7 @@ if (isset($_POST['id'])) {
         WHERE 
             row_num = 1
         ORDER BY 
-            Fullname ASC, sub.Subject ASC;  -- Order subjects by Subject name
+            Fullname ASC;
         ");
         $stmt->bind_param("i", $student_id); 
     }
