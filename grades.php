@@ -665,7 +665,7 @@ function openGradeAddModal(studentId) {
         if (!validateWritten()) {
             return; // Stop form submission if validation fails
         }
-        if (!validateQuarterGrade()) {
+        if (validateQuarterGrade()) {
             return; // Stop form submission if validation fails
         }
         if (!validateTP()) {
