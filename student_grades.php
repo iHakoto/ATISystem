@@ -79,6 +79,8 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">#</th>
+                                        <th class="text-center">Name</th>
+                                        <th class="text-center">Class Name</th>
                                         <th class="text-center" >First Quarter Grade</th>
                                         <th class="text-center" >Second Quarter Grade</th>
                                         <th class="text-center" >Third Quarter Grade</th>
