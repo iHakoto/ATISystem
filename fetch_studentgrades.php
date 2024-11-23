@@ -1,11 +1,17 @@
 <?php
 include 'auth.php';
 include 'database/db_connect.php';
-echo "Received class ID: " . $_POST['id'];  // Check the received value
 
 if (isset($_POST['id'])) {
     $classId = $_POST['id'];
     $student_id = $_POST['s_id'];
+    
+    echo "Received class ID: " . $classId;  // Debugging line, ensure classId is received properly.
+} else {
+    echo "Class ID not received.";  // If classId is not received
+    exit;
+}
+
 
     // Prepare the SQL statement to include both class and quarter filtering
     if ($classId) {
