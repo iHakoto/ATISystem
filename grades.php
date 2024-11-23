@@ -604,14 +604,14 @@ function openGradeAddModal(studentId) {
         function validateQuarterGrade() {
             const quarter_grade = document.getElementById("quarter_grade");
             
-            if (parseFloat(quarter_grade.value) < 75) {
+            /*if (parseFloat(quarter_grade.value) < 75) {
                 quarter_grade.style.borderColor = "red";  // Change border color to red
                 alert("Quarter Grade should not be less than 75.");
                 return false;
             } else {
                 quarter_grade.style.borderColor = "";  // Reset border color
             }
-            return true;
+            return true;*/
         }
 
         function validateWritten() {
